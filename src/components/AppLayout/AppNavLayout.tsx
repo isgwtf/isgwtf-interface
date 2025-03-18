@@ -145,7 +145,7 @@ function AppNavLayout({
       >
         {children}
       </Box>
-      <DisclaimerModal />
+      {/* <DisclaimerModal /> */}
       <Mobile>
         <Box className="mobile_bottom_navbar" flex="none">
           <MobileBottomNavbar />
@@ -259,9 +259,9 @@ function SettingsMenuModalContent(props: { isOpen: boolean; triggerRef: React.Re
           <Divider /> */}
           {/* <ColorThemeSettingField />
           <Divider /> */}
-          <RPCConnectionSettingField />
-          <Divider />
-          <AppVersion />
+          {/* <RPCConnectionSettingField />
+          <Divider /> */}
+          {/* <AppVersion /> */}
         </ModalBody>
       </ModalContent>
     </Modal>

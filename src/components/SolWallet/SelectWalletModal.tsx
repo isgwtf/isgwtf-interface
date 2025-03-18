@@ -154,12 +154,12 @@ export default function SelectWalletModal({ wallets, isOpen, onSelectWallet, onC
         ) : (
           <ModalBody display={'grid'}>
             <Box overflow={'hidden'} display={'flex'} flexDirection={'column'}>
-              <Box mb={5} color={colors.textTertiary} bg={colors.backgroundTransparent07} p={3} fontSize={['xs', 'sm']} rounded="md">
+              {/* <Box mb={5} color={colors.textTertiary} bg={colors.backgroundTransparent07} p={3} fontSize={['xs', 'sm']} rounded="md">
                 {t('wallet_connect_panel.desc')}{' '}
                 <Link href="https://raydium.io/docs/disclaimer/" isExternal>
                   {t('wallet_connect_panel.desc_link')}
                 </Link>
-              </Box>
+              </Box> */}
               {/* <Box mb={6}>
               <Text fontSize={['sm', 'md']} color={colors.textPrimary} fontWeight={500} mb={4}>
                 {t('wallet_connect_panel.choose_network')}
@@ -179,7 +179,7 @@ export default function SelectWalletModal({ wallets, isOpen, onSelectWallet, onC
               </HStack>
             </Box> */}
               <Box mb={6} flex={'1'} overflowY={'scroll'}>
-                <HStack justifyContent="space-between">
+                {/* <HStack justifyContent="space-between">
                   <Text fontSize={['sm', 'md']} color={colors.textPrimary} fontWeight={500} mb={4}>
                     {t('wallet_connect_panel.choose_wallet')}
                   </Text>
@@ -189,7 +189,7 @@ export default function SelectWalletModal({ wallets, isOpen, onSelectWallet, onC
                       <Switch checked={canShowUninstalledWallets} onChange={() => setCanShowUninstalledWallets((b) => !b)} />
                     </Flex>
                   )}
-                </HStack>
+                </HStack> */}
                 {/* have divider  */}
                 <SimpleGrid gridTemplateColumns={['1fr', '1fr 1fr']} rowGap={['10px', 3]} columnGap={4}>
                   {recommendedWallets.map((wallet) => (
@@ -222,7 +222,7 @@ export default function SelectWalletModal({ wallets, isOpen, onSelectWallet, onC
                   </SimpleGrid>
                 </Collapse>
               </Box>
-              {!isMobile && (
+              {/* {!isMobile && (
                 <Flex
                   bg={colors.backgroundTransparent07}
                   color={colors.textSecondary}
@@ -240,8 +240,8 @@ export default function SelectWalletModal({ wallets, isOpen, onSelectWallet, onC
                   </HStack>
                   <Switch checked={canShowUninstalledWallets} onChange={() => setCanShowUninstalledWallets((b) => !b)} />
                 </Flex>
-              )}
-              <Box
+              )} */}
+              {/* <Box
                 bg={isMobile ? colors.backgroundLight : 'transparent'}
                 position={isMobile ? 'fixed' : 'unset'}
                 bottom={isMobile ? '0' : 'unset'}
@@ -279,7 +279,7 @@ export default function SelectWalletModal({ wallets, isOpen, onSelectWallet, onC
                     </HStack>
                   </MoonpayBuy>
                 </Flex>
-              </Box>
+              </Box> */}
             </Box>
           </ModalBody>
         )}
