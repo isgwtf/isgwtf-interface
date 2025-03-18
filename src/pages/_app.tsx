@@ -43,7 +43,7 @@ const MyApp = ({ Component, pageProps, ...props }: AppProps) => {
     const setRpcUrl = async () => {
       onLoading()
       console.log(0)
-      await setRpcUrlAct('asdf') //https://mainnet.helius-rpc.com/?api-key=e6eb0566-8ed5-4c78-aee0-bdbfc3fa91b8
+      await setRpcUrlAct('https://mainnet.helius-rpc.com/?api-key=e6eb0566-8ed5-4c78-aee0-bdbfc3fa91b8') //https://mainnet.helius-rpc.com/?api-key=e6eb0566-8ed5-4c78-aee0-bdbfc3fa91b8
       offLoading()
     }
 
