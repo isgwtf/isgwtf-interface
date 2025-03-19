@@ -7,7 +7,7 @@ import { PositionTabValues } from '@/hooks/portfolio/useAllPositionInfo'
 import SectionOverview from './components/SectionOverview'
 import SectionAcceleraytor from './components/SectionIdo'
 import { Desktop } from '@/components/MobileDesktop'
-import { AcceleraytorAlertChip } from './AcceleraytorAlertChip'
+// import { AcceleraytorAlertChip } from './AcceleraytorAlertChip'
 
 export type PortfolioPageQuery = {
   section?: 'overview' | 'my-positions' | 'my-created-farm' | 'acceleraytor'
@@ -23,7 +23,7 @@ export default function Portfolio() {
       <Desktop>
         <PageHeroTitle title={t('portfolio.hero_title')} />
       </Desktop>
-      <AcceleraytorAlertChip />
+      {/* <AcceleraytorAlertChip /> */}
       <SectionOverview />
       <SectionMyPositions />
       <SectionMyCreatedFarms />

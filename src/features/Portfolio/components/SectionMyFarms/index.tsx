@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Box, Flex, Grid, GridItem, Heading, HStack, Text, useDisclosure } from '@chakra-ui/react'
 import Button from '@/components/Button'
 import { CreatePoolEntryDialog } from '@/features/Create/components/CreatePoolEntryDialog'
-import useCreatedFarmInfo, { FarmCategory } from '@/hooks/portfolio/farm/useCreatedFarmInfo'
+import { FarmCategory } from '@/hooks/portfolio/farm/useCreatedFarmInfo'
 import useFetchFarmInfoById from '@/hooks/farm/useFetchFarmInfoById'
 import { useStateWithUrl } from '@/hooks/useStateWithUrl'
 import useFetchPoolById from '@/hooks/pool/useFetchPoolById'
@@ -21,7 +21,8 @@ export default function SectionMyCreatedFarms() {
     toUrl: (v) => v
   })
   const publicKey = useAppStore((s) => s.publicKey)
-  const { formattedData } = useCreatedFarmInfo({ owner: publicKey })
+  // const { formattedData } = useCreatedFarmInfo({ owner: publicKey })
+  const formattedData: any[] = []
 
   const filteredData = useMemo(
     () => (filterType === FarmCategory.All ? formattedData : formattedData.filter((f) => f.type === filterType)),

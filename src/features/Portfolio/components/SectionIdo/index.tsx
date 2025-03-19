@@ -10,9 +10,11 @@ export default function SectionAcceleraytor() {
   const { t } = useTranslation()
 
   const publicKey = useAppStore((s) => s.publicKey)
-  const { formattedData, isLoading } = useFetchOwnerIdo({
-    owner: publicKey?.toString()
-  })
+  // const { formattedData, isLoading } = useFetchOwnerIdo({
+  //   owner: publicKey?.toString()
+  // })
+  const formattedData: any[] = []
+  const isLoading = false
   const { dataMap: keysDataMap } = useFetchIdoKeys({ idList: formattedData.map((d) => d.poolId) })
   if ((!isLoading && !formattedData.length) || formattedData.length === 0) return null
 
