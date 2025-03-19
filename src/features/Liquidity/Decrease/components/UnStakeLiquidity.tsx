@@ -68,8 +68,8 @@ export default function UnStakeLiquidity({
   })
 
   const v1Balance = farmPositionData?.data
-    .filter((d) => d.version === 'V1' && d.userVault !== vault && d.lpAmount !== '0')
-    .reduce((acc, cur) => acc.add(cur.lpAmount), new Decimal(0))
+    .filter((d: any) => d.version === 'V1' && d.userVault !== vault && d.lpAmount !== '0')
+    .reduce((acc: any, cur: any) => acc.add(cur.lpAmount), new Decimal(0))
     ?.toString()
   const v1Deposited = new Decimal(v1Balance || 0).div(10 ** (selectedFarm?.lpMint.decimals || 0)).toString()
 
