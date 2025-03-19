@@ -196,7 +196,7 @@ export default function Increase() {
           <VStack spacing={4}>
             {!increaseTabOptions[1].disabled && !lpBalance.isZero ? <StakeableHint /> : undefined}
             <Box {...panelCard} bg={colors.backgroundLight30} borderRadius="20px" overflow="hidden" w="full">
-              <Tabs isFitted items={tabOptions} size="md" variant="folder" value={tabValue} onChange={handleTabChange} />
+              {/* <Tabs isFitted items={tabOptions} size="md" variant="folder" value={tabValue} onChange={handleTabChange} /> */}
               {mode === 'add' ? (
                 <AddLiquidity
                   pool={pool}

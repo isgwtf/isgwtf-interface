@@ -231,7 +231,7 @@ export default function AddLiquidity({
         </HStack>
       </Flex> */}
       {/* base token */}
-      <Flex mt={5} justify="center" align="center" w={InputWidth} h="118px" borderRadius="12px">
+      <Flex justify="center" align="center" w={InputWidth} h="118px" borderRadius="12px">
         <TokenInput
           width="100%"
           ctrSx={{ w: '100%' }}

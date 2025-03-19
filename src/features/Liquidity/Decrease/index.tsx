@@ -112,7 +112,7 @@ export default function Decrease() {
         <GridItem>
           <VStack spacing={4}>
             <Box bg={colors.backgroundLight30} borderRadius="20px" overflow="hidden" w="full">
-              <Tabs isFitted items={decreaseTabOptions} size="md" variant="folder" value={tabValue} onChange={handleTabChange} />
+              {/* <Tabs isFitted items={decreaseTabOptions} size="md" variant="folder" value={tabValue} onChange={handleTabChange} /> */}
               <BalanceInfo
                 currentTab={tabValue}
                 stakedLiquidity={stakedLiquidity}
@@ -121,7 +121,7 @@ export default function Decrease() {
                 }
               />
             </Box>
-            {queryMode === 'unstake' ? (
+            {/* {queryMode === 'unstake' ? (
               <UnStakeLiquidity
                 poolInfo={poolInfo}
                 lpPrice={poolInfo?.lpPrice || 0}
@@ -130,7 +130,8 @@ export default function Decrease() {
               />
             ) : (
               <RemoveLiquidity poolInfo={poolInfo} rpcPoolData={rpcPoolData} onRefresh={handleRefresh} />
-            )}
+            )} */}
+            <RemoveLiquidity poolInfo={poolInfo} rpcPoolData={rpcPoolData} onRefresh={handleRefresh} />
           </VStack>
         </GridItem>
         {/* right */}
