@@ -90,7 +90,7 @@ export default function UnStakeLiquidity({
       farmInfo: selectedFarm!,
       amount: withdrawAmount.toString(),
       userAuxiliaryLedgers: farmPositionData?.hasV1Data
-        ? farmPositionData.data.filter((d) => d.version === 'V1' && !new Decimal(d.lpAmount).isZero()).map((d) => d.userVault)
+        ? farmPositionData.data.filter((d: any) => d.version === 'V1' && !new Decimal(d.lpAmount).isZero()).map((d: any) => d.userVault)
         : undefined,
       onSent: () => {
         setWithdrawPercent(0)
