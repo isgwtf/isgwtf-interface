@@ -308,7 +308,7 @@ function WalletItem({
       cursor={selectable ? 'pointer' : 'not-allowed'}
       rounded="md"
       _hover={
-        selectable ? { bg: isLight ? '#8C6EEF' : '#524c92', color: isLight ? colors.textRevertPrimary : colors.textPrimary } : undefined
+        selectable ? { bg: isLight ? '#2affa4' : '#524c92', color: isLight ? colors.textRevertPrimary : colors.textPrimary } : undefined
       }
       bg={colors.backgroundDark}
       py={3}

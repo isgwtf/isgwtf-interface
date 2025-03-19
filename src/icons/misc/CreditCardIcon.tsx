@@ -21,9 +21,9 @@ export default function CreditCardIcon(props: SvgIcon) {
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <rect x="3" y="10.25" width="2.5" height="1.5" fill="#8C6EEF" />
-      <rect x="6.5" y="10.25" width="2.5" height="1.5" fill="#8C6EEF" />
-      <rect x="10" y="10.25" width="2.5" height="1.5" fill="#8C6EEF" />
+      <rect x="3" y="10.25" width="2.5" height="1.5" fill="#2affa4" />
+      <rect x="6.5" y="10.25" width="2.5" height="1.5" fill="#2affa4" />
+      <rect x="10" y="10.25" width="2.5" height="1.5" fill="#2affa4" />
     </svg>
   )
 }

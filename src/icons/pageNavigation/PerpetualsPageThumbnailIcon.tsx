@@ -8,7 +8,7 @@ export default function PerpetualsPageThumbnailIcon(props: SvgIcon & { isActive?
 
   return isActive ? (
     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" {...restProps} className="chakra-icon" xmlns="http://www.w3.org/2000/svg">
-      <circle opacity="0.8" cx="11" cy="11" r="4" fill="#8C6EEF" />
+      <circle opacity="0.8" cx="11" cy="11" r="4" fill="#2affa4" />
       <rect x="3.5" y="5" width="5" height="10" rx="1" stroke="#ECF5FF" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
       <path d="M6 5V1.5" stroke="#ECF5FF" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
       <path d="M6 18.5V15" stroke="#ECF5FF" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />

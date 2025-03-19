@@ -50,7 +50,7 @@ export default function Done() {
           {t('create_standard_pool.note_done')}
         </Text>
         <Flex justify="center" align="center" gap={1}>
-          <Text fontSize="sm" color="#8C6EEF" fontWeight="medium">
+          <Text fontSize="sm" color="#2affa4" fontWeight="medium">
             <Highlight query={'AMM ID:'} styles={{ color: colors.textSecondary, fontWeight: 'normal' }}>
               {`AMM ID: ` + ammId ?? ''}
             </Highlight>

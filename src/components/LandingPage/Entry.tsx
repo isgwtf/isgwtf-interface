@@ -19,7 +19,7 @@ export default function Entry() {
             <Flex direction="column" justify="center" minHeight={280}>
               <Heading fontWeight={500} fontSize="4rem" lineHeight={'3.75rem'} color="white">
                 An avenue for{newLine} the evolution of{' '}
-                <Text as="span" bgGradient="linear(270.87deg, #8C6EEF 0.41%, #ABC4FF 97.12%)" bgClip="text">
+                <Text as="span" bgGradient="linear(270.87deg, #2affa4 0.41%, #ABC4FF 97.12%)" bgClip="text">
                   DeFi
                 </Text>
               </Heading>

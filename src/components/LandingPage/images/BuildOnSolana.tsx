@@ -41,7 +41,7 @@ export default function BuildOnSolana(props: SvgIcon = {}) {
       <rect x="94" y="22" width="78" height="4" fill="url(#paint0_linear_12158_14933)" />
       <defs>
         <linearGradient id="paint0_linear_12158_14933" x1="91" y1="26.0001" x2="181" y2="26.0001" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#8C6EEF" />
+          <stop stopColor="#2affa4" />
           <stop offset="1" stopColor="#39D0D8" />
         </linearGradient>
       </defs>

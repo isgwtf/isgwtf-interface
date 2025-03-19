@@ -190,10 +190,10 @@ export function Chart({
 
         {/* 24 price range line */}
         {isNaN(Number(priceMin)) ? null : (
-          <Line value={priceMin as number} y1={10} color="#8C6EEF" xScale={xScale} innerHeight={innerHeight + 10} />
+          <Line value={priceMin as number} y1={10} color="#2affa4" xScale={xScale} innerHeight={innerHeight + 10} />
         )}
         {isNaN(Number(priceMax)) ? null : (
-          <Line value={priceMax as number} y1={10} color="#8C6EEF" xScale={xScale} innerHeight={innerHeight + 10} />
+          <Line value={priceMax as number} y1={10} color="#2affa4" xScale={xScale} innerHeight={innerHeight + 10} />
         )}
       </svg>
     </>

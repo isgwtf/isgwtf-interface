@@ -19,7 +19,7 @@ export default function MorePageThumbnailIcon(props: SvgIcon & { isActive?: bool
       strokeLinejoin="round"
       {...restProps}
     >
-      <circle opacity={colorMode === 'light' ? '0.4' : '0.8'} cx="11" cy="11" r="4" fill="#8C6EEF" stroke="none" />
+      <circle opacity={colorMode === 'light' ? '0.4' : '0.8'} cx="11" cy="11" r="4" fill="#2affa4" stroke="none" />
       <path d="M17.4974 11.668H11.6641V17.5013H17.4974V11.668Z" />
       <path d="M8.33333 11.668H2.5V17.5013H8.33333V11.668Z" />
       <path d="M17.4974 2.5H11.6641V8.33333H17.4974V2.5Z" />

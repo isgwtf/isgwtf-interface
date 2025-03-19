@@ -29,7 +29,7 @@ export default function ChartPriceLabel({ currentPrice, currentPriceLabel, timeP
       </Flex>
 
       <Flex gap="2">
-        <Box width="8px" height="2px" mt="8px" bg="#8C6EEF" />
+        <Box width="8px" height="2px" mt="8px" bg="#2affa4" />
         <Flex flexDirection={['row', 'column']} gap={[2, 0]}>
           <Text fontSize="xs" fontWeight="500" color={colors.textSecondary}>
             {t('clmm.time_price_range', {

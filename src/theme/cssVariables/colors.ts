@@ -55,13 +55,13 @@ export const darkColors: Record<keyof typeof colors, string> = {
   // chart
   chart01: '#abc4ff',
   chart02: '#39D0D8',
-  chart03: '#8C6EEF',
+  chart03: '#2affa4',
   chart04: '#2B6AFF',
   chart05: '#FF7043',
   chart06: '#FED33A',
   chart07: '#4F53F3',
   chart08: '#22D1F8',
-  chart09: '#8C6EEF33',
+  chart09: '#2affa433',
 
   // Icon
   iconBg: '#8CA7E8',
@@ -286,7 +286,7 @@ export const colors = {
   backgroundMedium: '#0c1e15',
   backgroundLight: '#132c20',
   backgroundLight50: 'var(--background-light50)',
-  backgroundLight30: 'var(--background-light30)',
+  backgroundLight30: '#1d3e1c4d',
   backgroundTransparent12: 'var(--background-transparent12)',
   backgroundTransparent07: 'var(--background-transparent07)',
   backgroundTransparent10: 'var(--background-transparent10)',
@@ -367,7 +367,7 @@ export const colors = {
   // tooltip (this color is not in figma ui color system,but in figma ui page)
   tooltipBg: '#081913',
 
-  popoverBg: 'var(--popover-bg)',
+  popoverBg: '#081913',
 
   //customize component theme (by V3 frontend coder)
   scrollbarThumb: 'var(--scrollbar-thumb)',

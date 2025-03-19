@@ -3,7 +3,7 @@ import { SvgIcon } from '../type'
 export default function SwapExchangeIcon(props: SvgIcon) {
   return (
     <svg width={18} height={18} viewBox="0 0 18 18" fill="none" focusable="false" className="chakra-icon" {...props}>
-      <rect x="4" y="6" width="6" height="7" fill="#8C6EEF" />
+      <rect x="4" y="6" width="6" height="7" fill="#2affa4" />
       <rect x="11" y="6" width="3" height="7" fill="#22D1F8" />
       <path d="M4 17L2 14.5" stroke="#22D1F8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
       <path

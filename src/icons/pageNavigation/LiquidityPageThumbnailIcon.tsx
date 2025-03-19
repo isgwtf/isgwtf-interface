@@ -18,7 +18,7 @@ export default function LiquidityPageThumbnailIcon(props: SvgIcon & { isActive?:
       strokeLinecap="round"
       {...restProps}
     >
-      <circle opacity={colorMode === 'light' ? '0.4' : '0.8'} cx="11" cy="11" r="4" stroke="none" fill="#8C6EEF" />
+      <circle opacity={colorMode === 'light' ? '0.4' : '0.8'} cx="11" cy="11" r="4" stroke="none" fill="#2affa4" />
       <path d="M10 13.25C12.0711 13.25 13.75 11.5711 13.75 9.5C13.75 7.42893 12.0711 5.75 10 5.75" />
       <path d="M2.5 9.5C2.5 13.6421 5.85786 17 10 17C14.1421 17 17.5 13.6421 17.5 9.5C17.5 5.35786 14.1421 2 10 2" />
     </svg>

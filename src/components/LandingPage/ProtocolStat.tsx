@@ -29,7 +29,7 @@ export default function ProtocolStat() {
               style={{ overflow: 'hidden', display: 'flex', justifyContent: 'center' }}
             >
               <Box position="absolute" top="-67px" marginRight="381px" w="538px" h="541px" borderRadius="50%" bg="#39D0D8" opacity="0.6" />
-              <Box position="absolute" top="28px" marginLeft="480px" w="520px" h="523px" borderRadius="50%" bg="#8C6EEF" opacity="0.55" />
+              <Box position="absolute" top="28px" marginLeft="480px" w="520px" h="523px" borderRadius="50%" bg="#2affa4" opacity="0.55" />
             </Box>
           </Flex>
         </Center>

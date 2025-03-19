@@ -18,7 +18,7 @@ function ValueDisplay({ title, value }: { title: string; value: number }) {
         {title}
       </Box>
       <Text
-        bgGradient="linear(270.87deg, #8C6EEF 0.41%, #ABC4FF 97.12%)"
+        bgGradient="linear(270.87deg, #2affa4 0.41%, #ABC4FF 97.12%)"
         bgClip="text"
         fontWeight="800"
         lineHeight="5.125rem"
