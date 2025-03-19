@@ -26,11 +26,12 @@ import { getMintPriority } from '@/utils/token'
 // import { MoonpayBuy } from '@/components/Moonpay'
 // import { toastSubject } from '@/hooks/toast/useGlobalToast'
 import useResponsive from '@/hooks/useResponsive'
+import { ISG } from '@/store/configs/tokens'
 
 export default function Swap() {
   // const { inputMint: cacheInput, outputMint: cacheOutput } = getSwapPairCache()
   const [inputMint, setInputMint] = useState<string>(PublicKey.default.toBase58())
-  const [outputMint, setOutputMint] = useState<string>('HZEV4b3n2sAgifpWDNg2po3QxM2AqE3dMVUDcUiXSAFE')
+  const [outputMint, setOutputMint] = useState<string>(ISG.address)
   const [isPCChartShown, setIsPCChartShown] = useState<boolean>(true)
   const [isMobileChartShown, setIsMobileChartShown] = useState<boolean>(false)
   const [isChartLeft, setIsChartLeft] = useState<boolean>(true)

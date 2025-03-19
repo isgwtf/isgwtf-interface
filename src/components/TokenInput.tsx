@@ -31,6 +31,7 @@ import TokenUnknownAddDialog from './TokenSelectDialog/components/TokenUnknownAd
 import TokenFreezeDialog from './TokenSelectDialog/components/TokenFreezeDialog'
 import { TokenListHandles } from './TokenSelectDialog/components/TokenList'
 import useResponsive from '@/hooks/useResponsive'
+import { ISG } from '@/store/configs/tokens'
 
 export const DEFAULT_SOL_RESERVER = 0.01
 export interface InputActionRef {
@@ -232,7 +233,7 @@ function TokenInput(props: TokenInputProps) {
   })
 
   const handleSelectToken = useEvent((token: TokenInfo) => {
-    if (token.address === 'HZEV4b3n2sAgifpWDNg2po3QxM2AqE3dMVUDcUiXSAFE') {
+    if (token.address === ISG.address) {
       setExtraTokenListAct({ token: { ...token, userAdded: true } as TokenInfo, addToStorage: true, update: true })
       onCloseUnknownTokenConfirm()
       onTokenChange?.(token)

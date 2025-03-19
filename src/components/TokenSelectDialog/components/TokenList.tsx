@@ -1,7 +1,7 @@
 import { ChangeEvent, useCallback, useEffect, useMemo, useState, useRef, forwardRef, useImperativeHandle } from 'react'
-import { TokenInfo, WSOLMint } from '@raydium-io/raydium-sdk-v2'
+import { TokenInfo } from '@raydium-io/raydium-sdk-v2'
 import { useTranslation } from 'react-i18next'
-import { PublicKey } from '@solana/web3.js'
+// import { PublicKey } from '@solana/web3.js'
 import { useEvent } from '@/hooks/useEvent'
 import SearchIcon from '@/icons/misc/SearchIcon'
 import AddTokenIcon from '@/icons/misc/AddTokenIcon'
@@ -10,9 +10,9 @@ import { useTokenAccountStore, useTokenStore } from '@/store'
 import { colors } from '@/theme/cssVariables'
 import { sortItems } from '@/utils/sortItems'
 import { filterTokenFn } from '@/utils/token'
-import { Box, Divider, Flex, Heading, Input, InputGroup, InputRightAddon, SimpleGrid, Text } from '@chakra-ui/react'
+import { Box, Divider, Flex, Heading, Input, InputGroup, InputRightAddon, Text } from '@chakra-ui/react'
 import Decimal from 'decimal.js'
-import PopularTokenCell from './PopularTokenCell'
+// import PopularTokenCell from './PopularTokenCell'
 import List, { ListPropController } from '@/components/List'
 import AddressChip from '@/components/AddressChip'
 import TokenAvatar from '@/components/TokenAvatar'
@@ -21,14 +21,14 @@ import useTokenInfo from '@/hooks/token/useTokenInfo'
 import { isValidPublicKey } from '@/utils/publicKey'
 import { formatToRawLocaleStr } from '@/utils/numberish/formatter'
 import useTokenPrice, { TokenPrice } from '@/hooks/token/useTokenPrice'
-import { myTokens } from '@/store/configs/tokens'
+import { ISG, myTokens } from '@/store/configs/tokens'
 
 const perPage = 30
 
-const USDCMint = 'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v'
-const SOLMint = PublicKey.default.toString()
-const RAYMint = '4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R'
-const USDTMint = 'Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB'
+// const USDCMint = 'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v'
+// const SOLMint = PublicKey.default.toString()
+// const RAYMint = '4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R'
+// const USDTMint = 'Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB'
 
 export interface TokenListHandles {
   resetSearch: () => void
@@ -77,17 +77,14 @@ export default forwardRef<
   // const SOL = useMemo(() => orgTokenMap.get(SOLMint), [orgTokenMap])
   // const RAY = useMemo(() => orgTokenMap.get(RAYMint), [orgTokenMap])
   // const USDT = useMemo(() => orgTokenMap.get(USDTMint), [orgTokenMap])
-  const SAFE = useMemo(() => orgTokenMap.get('HZEV4b3n2sAgifpWDNg2po3QxM2AqE3dMVUDcUiXSAFE'), [orgTokenMap])
 
   useEffect(() => {
     listControllerRef.current?.resetRenderCount()
   }, [filteredList.length])
 
   useEffect(() => {
-    if (SAFE) {
-      setDisplayList([SAFE, ...tokenList.slice(0, perPage)])
-    }
-  }, [tokenList, SAFE])
+    setDisplayList(tokenList.slice(0, perPage))
+  }, [tokenList])
 
   useEffect(() => {
     const compareFn = (_a: number, _b: number, items: { itemA: TokenInfo; itemB: TokenInfo }) => {
@@ -336,7 +333,8 @@ function TokenRowItem({
               <Text color={colors.textSecondary} mt="0.5">
                 {token.symbol}
               </Text>
-              {token.address !== 'HZEV4b3n2sAgifpWDNg2po3QxM2AqE3dMVUDcUiXSAFE' && isUnknown ? (
+              {/* {isUnknown ? ( */}
+              {token.address !== ISG.address && isUnknown ? (
                 <Box
                   className="addRemoveCtrlContent"
                   display="none"

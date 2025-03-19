@@ -39,7 +39,7 @@ export function SwapKlinePanelMobileThumbnail({
   useEffect(() => {
     if (!pair) return
     const chart = createChart(chartCtrRef.current!, {
-      layout: { background: { type: ColorType.Solid, color: 'transparent' }, fontFamily: 'Space Grotesk' },
+      layout: { background: { type: ColorType.Solid, color: 'transparent' }, fontFamily: 'Alliance No2' },
       grid: {
         vertLines: {
           visible: false

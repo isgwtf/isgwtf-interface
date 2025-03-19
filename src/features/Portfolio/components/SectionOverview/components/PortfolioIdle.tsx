@@ -144,7 +144,7 @@ function AssetsList(props: { idleList?: IdleType[] }) {
           <GridItem area={'i2'}>
             <Text color={colors.textSecondary}>{formatCurrency(idle.amountInUSD, { symbol: '$', decimalPlaces: 2 })}</Text>
           </GridItem>
-          <GridItem area={'btn'} justifySelf={'end'}>
+          {/* <GridItem area={'btn'} justifySelf={'end'}>
             {idle.token?.address ? (
               <Button
                 size={'xs'}
@@ -162,7 +162,7 @@ function AssetsList(props: { idleList?: IdleType[] }) {
                 </Box>
               </Button>
             ) : null}
-          </GridItem>
+          </GridItem> */}
         </Grid>
       ))}
     </SimpleGrid>

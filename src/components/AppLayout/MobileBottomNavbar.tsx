@@ -1,15 +1,15 @@
-import { Box, ColorMode, Menu, MenuButton, SimpleGrid, Text, VStack, useColorMode } from '@chakra-ui/react'
+import { Box, ColorMode, SimpleGrid, Text, VStack, useColorMode } from '@chakra-ui/react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { ReactNode } from 'react'
 
 import LiquidityPageThumbnailIcon from '@/icons/pageNavigation/LiquidityPageThumbnailIcon'
-import MorePageThumbnailIcon from '@/icons/pageNavigation/MoreThumbnailIcon'
+// import MorePageThumbnailIcon from '@/icons/pageNavigation/MoreThumbnailIcon'
 import PortfolioPageThumbnailIcon from '@/icons/pageNavigation/PortfolioPageThumbnailIcon'
-import PerpetualsPageThumbnailIcon from '@/icons/pageNavigation/PerpetualsPageThumbnailIcon'
+// import PerpetualsPageThumbnailIcon from '@/icons/pageNavigation/PerpetualsPageThumbnailIcon'
 import SwapPageThumbnailIcon from '@/icons/pageNavigation/SwapPageThumbnailIcon'
 import { colors } from '@/theme/cssVariables'
-import { NavMoreButtonMenuPanel } from './components/NavMoreButtonMenuPanel'
+// import { NavMoreButtonMenuPanel } from './components/NavMoreButtonMenuPanel'
 import { shrinkToValue } from '@/utils/shrinkToValue'
 import { useTranslation } from 'react-i18next'
 
@@ -25,7 +25,7 @@ export function MobileBottomNavbar() {
   const isLiquidityActive = pathname === liquidityHref
   const protfolioHref = '/portfolio'
   const isPortfolioActive = pathname === protfolioHref
-  const isMoreActive = pathname === '/staking'
+  // const isMoreActive = pathname === '/staking'
 
   return (
     <SimpleGrid
@@ -61,7 +61,7 @@ export function MobileBottomNavbar() {
         icon={(colorMode) => <PerpetualsPageThumbnailIcon colorMode={colorMode} isActive={false} />}
         isActive={false}
       /> */}
-      <Menu size="lg" placement="top-end" offset={[0, 30]} /* make menu popup higher */>
+      {/* <Menu size="lg" placement="top-end" offset={[0, 30]}>
         <MenuButton as="div">
           <BottomNavbarItem
             text={t('common.nav_text_more')}
@@ -70,7 +70,7 @@ export function MobileBottomNavbar() {
           />
         </MenuButton>
         <NavMoreButtonMenuPanel />
-      </Menu>
+      </Menu> */}
     </SimpleGrid>
   )
 }

@@ -16,27 +16,27 @@ export default function retryTx({ tx, id }: { tx: Transaction | VersionedTransac
   const { connection, urlConfigs } = useAppStore.getState()
   if (retryRecord.has(id)) return
 
-  const deviceInfo = parseUserAgent(window.navigator.userAgent)
-  const sendApi = () => {
-    try {
-      axios
-        .post(
-          `${urlConfigs.SERVICE_1_BASE_HOST}/send-tx`,
-          {
-            data: txToBase64(tx),
-            walletName: useAppStore.getState().wallet?.adapter.name || '',
-            deviceType: deviceInfo.device.type || 'pc'
-          },
-          { skipError: true }
-        )
-        .catch((e) => {
-          console.error('send tx to be error', e.message)
-        })
-    } catch {
-      console.error('send tx to be error')
-    }
-  }
-  sendApi()
+  // const deviceInfo = parseUserAgent(window.navigator.userAgent)
+  // const sendApi = () => {
+  //   try {
+  //     axios
+  //       .post(
+  //         `${urlConfigs.SERVICE_1_BASE_HOST}/send-tx`,
+  //         {
+  //           data: txToBase64(tx),
+  //           walletName: useAppStore.getState().wallet?.adapter.name || '',
+  //           deviceType: deviceInfo.device.type || 'pc'
+  //         },
+  //         { skipError: true }
+  //       )
+  //       .catch((e) => {
+  //         console.error('send tx to be error', e.message)
+  //       })
+  //   } catch {
+  //     console.error('send tx to be error')
+  //   }
+  // }
+  // sendApi()
   if (!connection) return
   retryRecord.set(id, {
     done: false
@@ -51,7 +51,7 @@ export default function retryTx({ tx, id }: { tx: Transaction | VersionedTransac
       } catch {
         console.error('send tx to rpc error')
       }
-      sendApi()
+      // sendApi()
 
       throw new Error('sending')
     },

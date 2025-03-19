@@ -108,7 +108,7 @@ export default function ActionButtons({
         >
           <PlusIcon color={colors.buttonSolidText} />
         </Button>
-        {!isLocked ? (
+        {/* {!isLocked ? (
           canMigrate ? (
             <Button size="sm" onClick={onMigrateOpen}>
               {t('portfolio.stake_item_migrate_button')}
@@ -118,7 +118,7 @@ export default function ActionButtons({
               {t('portfolio.stake_item_stake_button')}
             </Button>
           )
-        ) : null}
+        ) : null} */}
       </Flex>
     </Flex>
   )

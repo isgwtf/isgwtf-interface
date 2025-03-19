@@ -42,7 +42,7 @@ export default function CandleChart({ onPriceChange, baseMint, quoteMint, timeTy
     const downColor = '#ff4ea3'
     const crosshairColor = colorMode === 'light' ? '#474ABB' : '#ABC4FF'
     const chart = createChart(chartCtrRef.current!, {
-      layout: { textColor: chartTextColor, background: { type: ColorType.Solid, color: 'transparent' }, fontFamily: 'Space Grotesk' },
+      layout: { textColor: chartTextColor, background: { type: ColorType.Solid, color: 'transparent' }, fontFamily: 'Alliance No2' },
       grid: { vertLines: { color: 'transparent' }, horzLines: { color: 'transparent' } },
       crosshair: { mode: CrosshairMode.Normal, vertLine: { color: crosshairColor }, horzLine: { color: crosshairColor } },
       autoSize: true,

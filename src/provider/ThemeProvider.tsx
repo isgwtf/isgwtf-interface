@@ -18,7 +18,7 @@ const ThemeProvider: FC<{ children: ReactNode }> = ({ children }) => {
           height: 100%;
         }
         :root,body {
-          --global-font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB',
+          --global-font-family: 'Alliance No2', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB',
             'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
             'Segoe UI Symbol';
           font-family: var(--global-font-family);
@@ -73,6 +73,12 @@ const ThemeProvider: FC<{ children: ReactNode }> = ({ children }) => {
           ::-webkit-scrollbar-corner {
             background-color: transparent;
           }
+        }
+
+        @font-face {
+          font-family: 'Alliance No2';
+          src: url('/AllianceNo2-Regular.ttf') format('truetype');
+          font-weight: 300;
         }
 
         @font-face {

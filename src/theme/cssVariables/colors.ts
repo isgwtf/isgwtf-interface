@@ -110,7 +110,7 @@ export const darkColors: Record<keyof typeof colors, string> = {
   solidButtonBg: 'linear-gradient(272.03deg, #39D0D8 2.63%, #22D1F8 95.31%)',
   outlineButtonBg: 'linear-gradient(272.03deg, rgba(57, 208, 216, 0.1) 2.63%, rgba(34, 209, 248, 0.1) 95.31%)',
   filledProgressBg: 'linear-gradient(270deg, #8C6EEF 0%, #4F53F3 100%)',
-  transparentContainerBg: 'linear-gradient(271.31deg, rgba(96, 59, 200, 0.2) 1.47%, rgba(140, 110, 239, 0.12) 100%)',
+  transparentContainerBg: 'linear-gradient(271.31deg, rgba(59, 200, 153, 0.2) 1.47%, rgba(110, 239, 151, 0.12) 100%)',
   modalContainerBg: '#ABC4FF12',
   infoButtonBg: '#ABC4FF33',
   warnButtonBg: '#FED33A33',
@@ -244,9 +244,9 @@ export const lightColors: Partial<typeof darkColors> = {
   // customize (by V3 frontend coder)
   backgroundApp: '#fff',
 
-  solidButtonBg: 'linear-gradient(272deg, #4F53F3 2.63%, #8C6EEF 95.31%)',
-  outlineButtonBg: 'linear-gradient(270deg, #8C6EEF1a 0%, #4F53F31a 100%)',
-  filledProgressBg: 'linear-gradient(270deg, #8C6EEF 0%, #4F53F3 100%)',
+  solidButtonBg: 'linear-gradient(272deg,rgb(112, 243, 79) 2.63%,rgb(110, 239, 155) 95.31%)',
+  outlineButtonBg: 'linear-gradient(270deg,rgba(110, 239, 149, 0.1) 0%,rgba(79, 243, 128, 0.1) 100%)',
+  filledProgressBg: 'linear-gradient(270deg,rgb(146, 239, 110) 0%,rgb(79, 243, 172) 100%)',
   transparentContainerBg: '#F5F8FF',
   modalContainerBg: '#ABC4FF12',
   infoButtonBg: '#ABC4FF33',
@@ -262,7 +262,7 @@ export const lightColors: Partial<typeof darkColors> = {
   text02: '#000',
   text03: '#474ABB',
   /** it's designer's variable name in Figma */
-  brandGradient: 'linear-gradient(244deg, #7748FC 8.17%, #39D0D8 101.65%)',
+  brandGradient: 'linear-gradient(244deg,rgb(114, 252, 72) 8.17%,rgb(57, 216, 160) 101.65%)',
   dividerDashGradient: 'repeating-linear-gradient(to right, currentColor 0 5px, transparent 5px 10px)',
 
   tokenAvatarBg: 'linear-gradient(127deg, rgba(171, 196, 255, 0.20) 28.69%, rgba(171, 196, 255, 0.00) 100%) #fffe',
@@ -283,7 +283,7 @@ export const colors = {
   // component color
   backgroundDark: '#081913',
   backgroundDark50: '#08191380',
-  backgroundMedium: 'var(--background-medium)',
+  backgroundMedium: '#0c1e15',
   backgroundLight: '#132c20',
   backgroundLight50: 'var(--background-light50)',
   backgroundLight30: 'var(--background-light30)',
@@ -408,6 +408,6 @@ export const colors = {
 
   tokenAvatarBg: 'var(--token-avatar-bg)',
 
-  panelCardShadow: 'var(--panel-card-shadow)',
+  panelCardShadow: '#234234',
   panelCardBorder: 'var(--panel-card-border)'
 }

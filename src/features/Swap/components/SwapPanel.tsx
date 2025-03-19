@@ -44,6 +44,7 @@ import useTokenInfo from '@/hooks/token/useTokenInfo'
 import { debounce } from '@/utils/functionMethods'
 import QuestionCircleIcon from '@/icons/misc/QuestionCircleIcon'
 import Tooltip from '@/components/Tooltip'
+import { ISG } from '@/store/configs/tokens'
 
 export function SwapPanel({
   onInputMintChange,
@@ -77,7 +78,7 @@ export function SwapPanel({
   const [inputMint, setInputMint] = useState<string>(PublicKey.default.toBase58())
   const [swapType, setSwapType] = useState<'BaseIn' | 'BaseOut'>('BaseIn')
 
-  const [outputMint, setOutputMint] = useState<string>('HZEV4b3n2sAgifpWDNg2po3QxM2AqE3dMVUDcUiXSAFE')
+  const [outputMint, setOutputMint] = useState<string>(ISG.address)
   const [tokenInput, tokenOutput] = [tokenMap.get(inputMint), tokenMap.get(outputMint)]
   const [cacheLoaded, setCacheLoaded] = useState(false)
   const isTokenLoaded = tokenMap.size > 0
@@ -516,7 +517,7 @@ function TransferFeeTip({ feeConfig, token }: { feeConfig: TransferFeeDataBaseTy
         {t('common.token_2022_assets')}
       </Text>
       <Text color={colors.primary}>{t('common.token_2022_assets_desc')}</Text>
-      {token.address !== 'HZEV4b3n2sAgifpWDNg2po3QxM2AqE3dMVUDcUiXSAFE' && (
+      {token.address !== ISG.address && (
         <Text color={colors.semanticWarning} fontWeight="500">
           {t('common.trade_with_caution')}
         </Text>

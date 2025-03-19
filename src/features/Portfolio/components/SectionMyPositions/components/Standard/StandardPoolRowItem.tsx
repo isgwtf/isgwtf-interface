@@ -270,7 +270,7 @@ export default function StandardPoolRowItem({ pool, isLoading, position, stakedF
                 >
                   <PlusIcon />
                 </Button>
-                {canMigrate ? (
+                {/* {canMigrate ? (
                   <Button size="xs" w={16} h={6} onClick={onMigrateOpen}>
                     {t('portfolio.stake_item_migrate_button')}
                   </Button>
@@ -291,7 +291,7 @@ export default function StandardPoolRowItem({ pool, isLoading, position, stakedF
                   >
                     {t('portfolio.stake_item_stake_button')}
                   </Button>
-                )}
+                )} */}
               </Flex>
             </Flex>
             <Flex alignItems="center" gap={1}>

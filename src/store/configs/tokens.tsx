@@ -1,3 +1,5 @@
+import { TokenInfo } from '@raydium-io/raydium-sdk-v2'
+
 export const myTokens = [
   '11111111111111111111111111111111',
   'So11111111111111111111111111111111111111112',
@@ -5,6 +7,35 @@ export const myTokens = [
   'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v',
   'HZEV4b3n2sAgifpWDNg2po3QxM2AqE3dMVUDcUiXSAFE'
 ]
+
+export const ISG: TokenInfo = {
+  chainId: 101,
+  address: 'HZEV4b3n2sAgifpWDNg2po3QxM2AqE3dMVUDcUiXSAFE',
+  programId: 'TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb',
+  logoURI: 'https://img-v1.raydium.io/icon/HZEV4b3n2sAgifpWDNg2po3QxM2AqE3dMVUDcUiXSAFE.png',
+  symbol: 'SAFE',
+  name: 'Safe Coin Money',
+  decimals: 6,
+  tags: ['hasTransferFee'],
+  extensions: {
+    feeConfig: {
+      transferFeeConfigAuthority: '11111111111111111111111111111111',
+      withdrawWithheldAuthority: '2P9C8tiGPUos1zYbQMPqnVc74XW5ZYYUzHs36FGEPQzY',
+      withheldAmount: '0',
+      newerTransferFee: {
+        epoch: '754',
+        maximumFee: '100000000000000',
+        transferFeeBasisPoints: 1000
+      },
+      olderTransferFee: {
+        epoch: '754',
+        maximumFee: '100000000000000',
+        transferFeeBasisPoints: 1000
+      }
+    }
+  },
+  priority: 2
+}
 
 // '6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN',
 // 'JUPyiwrYJFskUPiHa7hkeR8VUtAeFoSYbKedZNsDvCN',

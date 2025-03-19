@@ -16,7 +16,7 @@ import {
   useDisclosure,
   useUpdateEffect
 } from '@chakra-ui/react'
-import { ApiV3Token, FetchPoolParams, PoolFetchType } from '@raydium-io/raydium-sdk-v2'
+import { ApiV3Token, FetchPoolParams, PoolFetchType, WSOLMint } from '@raydium-io/raydium-sdk-v2'
 import { ChangeEvent, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
@@ -60,6 +60,7 @@ import { getFavoritePoolCache, POOL_SORT_KEY } from './util'
 import i18n from '@/i18n'
 import { setUrlQuery, useRouteQuery } from '@/utils/routeTools'
 import { urlToMint, mintToUrl } from '@/utils/token'
+import { ISG } from '@/store/configs/tokens'
 
 export type PoolPageQuery = {
   token?: string
@@ -130,14 +131,14 @@ export default function Pools() {
 
   const tabItems: PoolTabItem[] = [
     {
-      name: 'Concentrated',
-      label: isEN && isMobile ? 'CLMM' : t('liquidity.concentrated'),
-      value: PoolFetchType.Concentrated
-    },
-    {
       name: 'Standard',
       label: isEN && isMobile ? 'STANDARD' : t('liquidity.standard'),
       value: PoolFetchType.Standard
+    },
+    {
+      name: 'Concentrated',
+      label: isEN && isMobile ? 'CLMM' : t('liquidity.concentrated'),
+      value: PoolFetchType.Concentrated
     },
     {
       name: 'All',
@@ -155,7 +156,6 @@ export default function Pools() {
 
   // -------- search --------
   const tokenMap = useTokenStore((s) => s.tokenMap)
-  // const SAFE = tokenMap.get('HZEV4b3n2sAgifpWDNg2po3QxM2AqE3dMVUDcUiXSAFE')
   const [searchTokens, setSearchTokens] = useState<ApiV3Token[]>([])
   const skipSyncQuery = useRef(false)
 
@@ -166,10 +166,10 @@ export default function Pools() {
   useEffectWithUrl(
     'token',
     (query) => {
-      // if (!query) return
-      const data = 'HZEV4b3n2sAgifpWDNg2po3QxM2AqE3dMVUDcUiXSAFE'
+      if (!query) return
       if (!tokenMap.size) return
-      const tokenMints = data.split(',')
+      const tokenMints = query.split(',')
+      // const tokenMints = [ISG.address]
       const searchTokens: ApiV3Token[] = []
       let searchMints = ''
       tokenMints.forEach((mint) => {
@@ -274,8 +274,8 @@ export default function Pools() {
     isLoading: isSearchMintLoading
   } = useFetchPoolByMint({
     showFarms,
-    mint1: searchTokens[0]?.address,
-    mint2: searchTokens[1]?.address,
+    mint1: ISG.address, // mint1: searchTokens[0]?.address,
+    mint2: undefined, // mint2: searchTokens[1]?.address,
     type: activeTabItem.value,
     order: order ? 'desc' : 'asc',
     sort: (sortKey !== 'liquidity' && sortKey !== 'default' ? `${sortKey}${timeBase}` : sortKey) as FetchPoolParams['sort']
@@ -291,7 +291,8 @@ export default function Pools() {
   const isSearchLoadEnded = isSearchPublicKey ? !isSearchIdLoading && isSearchMintLoadEnded : isSearchMintLoadEnded
   const isNotFound = (searchTokens.length > 0 || isSearchPublicKey) && !isSearchLoading && !searchData.length
 
-  const data = hasSearch || searchIdData?.length ? searchData : orgData
+  // const data = hasSearch || searchIdData?.length ? searchData : orgData
+  const data = searchData
   const isLoading = hasSearch ? isSearchLoading : isOrgLoading
   const isLoadEnded = hasSearch ? isSearchLoadEnded : isOrgLoadedEnd
   const loadMore = hasSearch ? () => {} : orgLoadMore

@@ -1,25 +1,9 @@
 import { useDisclosure } from '@/hooks/useDelayDisclosure'
-import RaydiumLogo from '@/icons/RaydiumLogo'
-import RaydiumLogoOutline from '@/icons/RaydiumLogoOutline'
-import ChevronDownIcon from '@/icons/misc/ChevronDownIcon'
 import Gear from '@/icons/misc/Gear'
 import { useAppStore } from '@/store'
 import { colors } from '@/theme/cssVariables'
 import { appLayoutPaddingX } from '@/theme/detailConfig'
-import {
-  Box,
-  Flex,
-  HStack,
-  Menu,
-  MenuButton,
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalHeader,
-  ModalOverlay,
-  Text
-} from '@chakra-ui/react'
+import { Box, Flex, HStack, Modal, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay, Text } from '@chakra-ui/react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { ReactNode, useRef } from 'react'
@@ -27,17 +11,11 @@ import { useTranslation } from 'react-i18next'
 import { Desktop, Mobile } from '../MobileDesktop'
 import SolWallet from '../SolWallet'
 import { MobileBottomNavbar } from './MobileBottomNavbar'
-import { ColorThemeSettingField } from './components/ColorThemeSettingField'
 import { DefaultExplorerSettingField } from './components/DefaultExplorerSettingField'
-import { LanguageSettingField } from './components/LanguageSettingField'
-import { NavMoreButtonMenuPanel } from './components/NavMoreButtonMenuPanel'
-// import { RPCConnectionSettingField } from './components/RPCConnectionSettingField'
 import { Divider } from './components/SettingFieldDivider'
 import { SlippageToleranceSettingField } from './components/SlippageToleranceSettingField'
 import { VersionedTransactionSettingField } from './components/VersionedTransactionSettingField'
 import { PriorityButton } from './components/PriorityButton'
-import DisclaimerModal from './components/DisclaimerModal'
-import AppVersion from './AppVersion'
 
 export interface NavSettings {
   // colorTheme: 'dark' | 'light'
@@ -69,13 +47,17 @@ function AppNavLayout({
         <Desktop>
           <Box flex={'none'}>
             <Link href="/swap">
-              <RaydiumLogo />
+              {/* <RaydiumLogo /> */}
+              <img src="/logo.png" alt="" width="60px" />
             </Link>
           </Box>
         </Desktop>
         <Mobile>
           <HStack>
-            <RaydiumLogoOutline />
+            {/* <RaydiumLogoOutline /> */}
+            <Box mr="8px">
+              <img src="/logo.png" alt="" width="60px" />
+            </Box>
             <Text fontSize="xl" fontWeight="medium" color={colors.textSecondary}>
               {pathname === '/swap'
                 ? t('swap.title')

@@ -75,10 +75,10 @@ const App: FC<PropsWithChildren<any>> = ({ children }) => {
           options: {
             projectId: process.env.NEXT_PUBLIC_WALLET_CONNECT_PJ_ID,
             metadata: {
-              name: 'Raydium',
-              description: 'Raydium',
-              url: 'https://raydium.io/',
-              icons: ['https://raydium.io/logo/logo-only-icon.svg']
+              name: 'ISG',
+              description: 'ISG',
+              url: 'https://isg.io/',
+              icons: ['https://isg.io/logo/logo-only-icon.svg']
             }
           }
         })
@@ -110,7 +110,7 @@ const App: FC<PropsWithChildren<any>> = ({ children }) => {
       new ExodusWalletAdapter({ endpoint }),
       new TipLinkWalletAdapter({
         clientId: process.env.NEXT_PUBLIC_WALLET_TIP_WALLET_KEY ?? '',
-        title: 'Raydium',
+        title: 'ISG',
         theme: 'system'
       }) as unknown as Adapter
     ],

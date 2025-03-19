@@ -12,6 +12,7 @@ import useLockCpmmBalance from '@/hooks/portfolio/cpmm/useLockCpmmBalance'
 import { useMemo } from 'react'
 import { formatPoolData } from '@/hooks/pool/formatter'
 import { FormattedPoolInfoStandardItem } from '@/hooks/pool/type'
+import { ISG } from '@/store/configs/tokens'
 
 const emptyPosition = {
   hasAmount: true,
@@ -46,11 +47,13 @@ export default function MyPositionTabStandard({
     (d) => !(lpBasedData.has(d!.address.toString()) && lpBasedData.get(d!.address.toString())?.hasAmount)
   )
 
-  const { formattedData, isLoading: isPoolLoading } = useFetchPoolByLpMint({
+  const { formattedData: _formattedData, isLoading: isPoolLoading } = useFetchPoolByLpMint({
     lpMintList: farmPositionList.map((f) => f[0]).concat(lpOnlyList.map((p) => p.address.toBase58())),
     refreshTag,
     keepPreviousData: true
   })
+
+  const formattedData = _formattedData?.filter((f) => f.mintA.address === ISG.address || f.mintB.address === ISG.address)
 
   const allLockLp = useMemo(() => {
     const data = new Map(Array.from(cpmmLockBalanceInfo))

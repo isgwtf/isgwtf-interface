@@ -21,6 +21,7 @@ import { isValidUrl } from '@/utils/url'
 import { setStorageItem, getStorageItem } from '@/utils/localStorage'
 import { retry, isProdEnv } from '@/utils/common'
 import { compare } from 'compare-versions'
+import { ISG } from './configs/tokens'
 
 export const defaultNetWork = WalletAdapterNetwork.Mainnet // Can be set to 'devnet', 'testnet', or 'mainnet-beta'
 export const defaultEndpoint = clusterApiUrl(defaultNetWork) // You can also provide a custom RPC endpoint
@@ -217,14 +218,16 @@ export const useAppStore = createStore<AppState>(
         })
       useTokenStore.setState(
         {
-          tokenList,
-          displayTokenList: tokenList.filter((token) => {
-            return (
-              (displayTokenSettings.official && raydium.token.mintGroup.official.has(token.address)) ||
-              (displayTokenSettings.jup && raydium.token.mintGroup.jup.has(token.address))
-            )
-          }),
-          tokenMap,
+          tokenList: [ISG, ...tokenList],
+          displayTokenList: tokenList
+            .filter((token) => {
+              return (
+                (displayTokenSettings.official && raydium.token.mintGroup.official.has(token.address)) ||
+                (displayTokenSettings.jup && raydium.token.mintGroup.jup.has(token.address))
+              )
+            })
+            .concat([ISG]),
+          tokenMap: tokenMap.set(ISG.address, ISG),
           mintGroup: raydium.token.mintGroup,
           whiteListMap: new Set(Array.from(raydium.token.whiteListMap))
         },

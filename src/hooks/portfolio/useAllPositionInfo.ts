@@ -36,7 +36,7 @@ export type PositionWithUpdateFn = ClmmPosition & {
 }
 export type ClmmDataWithUpdateFn = Map<string, PositionWithUpdateFn[]>
 
-export type PositionTabValues = 'concentrated' | 'standard' | 'staked RAY'
+export type PositionTabValues = 'standard' | 'concentrated' | 'staked RAY'
 
 export default function useAllPositionInfo({ shouldFetch = true }: { shouldFetch?: boolean }) {
   const harvestAllFarmAct = useFarmStore((s) => s.harvestAllAct)

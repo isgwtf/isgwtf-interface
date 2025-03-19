@@ -113,7 +113,7 @@ export const darkTheme = {
   card: { background: 'rgba(11, 16, 34, 1)', secondary: '#ffffff0C', elevation: 'none' },
   popover: { background: '#1B2033', secondary: '#ffffff0C', elevation: 'none' },
   modal: { background: 'rgba(0, 0, 0, 0.8)' },
-  font: { primary: '"Space Grotesk", sans-serif', header: '"Space Grotesk", monospace' }
+  font: { primary: '"Alliance No2", sans-serif', header: '"Alliance No2", monospace' }
 }
 
 export const lightTheme = {

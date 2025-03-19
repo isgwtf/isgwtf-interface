@@ -3,16 +3,16 @@ import { Box, Flex, Grid, GridItem, HStack, Heading, SimpleGrid, Text } from '@c
 import { useTranslation } from 'react-i18next'
 import { useRouter } from 'next/router'
 import Button from '@/components/Button'
-import Tabs from '@/components/Tabs'
+// import Tabs from '@/components/Tabs'
 import { colors } from '@/theme/cssVariables'
 import { useAppStore } from '@/store/useAppStore'
 import { QuestionToolTip } from '@/components/QuestionToolTip'
-import { ClmmMyPositionTabContent } from './TabClmm'
-import MyPositionTabStaked from './TabStaked'
+// import { ClmmMyPositionTabContent } from './TabClmm'
+// import MyPositionTabStaked from './TabStaked'
 import MyPositionTabStandard from './TabStandard'
-import { Desktop, Mobile } from '@/components/MobileDesktop'
-import { Select } from '@/components/Select'
-import { useStateWithUrl } from '@/hooks/useStateWithUrl'
+// import { Desktop, Mobile } from '@/components/MobileDesktop'
+// import { Select } from '@/components/Select'
+// import { useStateWithUrl } from '@/hooks/useStateWithUrl'
 import IntervalCircle, { IntervalCircleHandler } from '@/components/IntervalCircle'
 import useAllPositionInfo, { PositionTabValues } from '@/hooks/portfolio/useAllPositionInfo'
 import { panelCard } from '@/theme/cssBlocks'
@@ -26,50 +26,50 @@ export default function SectionMyPositions() {
   const { query } = useRouter()
   const [refreshTag, setRefreshTag] = useState(Date.now())
   const circleRef = useRef<IntervalCircleHandler>(null)
-  const tabs: {
-    value: PositionTabValues
-    label: string
-  }[] = [
-    {
-      value: 'concentrated',
-      label: t('portfolio.section_positions_tab_clmm')
-    },
-    {
-      value: 'standard',
-      label: t('portfolio.section_positions_tab_standard')
-    },
-    {
-      value: 'staked RAY',
-      label: t('portfolio.section_positions_tab_staking')
-    }
-  ]
+  // const tabs: {
+  //   value: PositionTabValues
+  //   label: string
+  // }[] = [
+  //   {
+  //     value: 'standard',
+  //     label: t('portfolio.section_positions_tab_standard')
+  //   },
+  //   {
+  //     value: 'concentrated',
+  //     label: t('portfolio.section_positions_tab_clmm')
+  //   },
+  //   {
+  //     value: 'staked RAY',
+  //     label: t('portfolio.section_positions_tab_staking')
+  //   }
+  // ]
   const connected = useAppStore((s) => s.connected)
   const owner = useAppStore((s) => s.publicKey)
   const isMobile = useAppStore((s) => s.isMobile)
 
-  const defaultTab = (query.tab as string) || tabs[0].value
+  // const defaultTab = (query.tab as string) || tabs[0].value
 
-  const [currentTab, setCurrentTab] = useStateWithUrl(defaultTab, 'position_tab', {
-    fromUrl: (v) => v,
-    toUrl: (v) => v
-  })
+  // const [currentTab, setCurrentTab] = useStateWithUrl(defaultTab, 'position_tab', {
+  //   fromUrl: (v) => v,
+  //   toUrl: (v) => v
+  // })
 
-  const onTabChange = (tab: any) => {
-    setCurrentTab(tab)
-  }
+  // const onTabChange = (tab: any) => {
+  //   setCurrentTab(tab)
+  // }
 
-  const isFocusClmmTab = currentTab === tabs[0].value
-  const isFocusStandardTab = currentTab === tabs[1].value
-  const isFocusStake = currentTab === tabs[2].value
+  // const isFocusStandardTab = currentTab === tabs[0].value
+  // const isFocusClmmTab = currentTab === tabs[1].value
+  // const isFocusStake = currentTab === tabs[2].value
 
   const noRewardClmmPos = useRef<Set<string>>(new Set())
-  const setNoRewardClmmPos = useEvent((poolId: string, isDelete?: boolean) => {
-    if (isDelete) {
-      noRewardClmmPos.current.delete(poolId)
-      return
-    }
-    noRewardClmmPos.current.add(poolId)
-  })
+  // const setNoRewardClmmPos = useEvent((poolId: string, isDelete?: boolean) => {
+  //   if (isDelete) {
+  //     noRewardClmmPos.current.delete(poolId)
+  //     return
+  //   }
+  //   noRewardClmmPos.current.add(poolId)
+  // })
 
   useEffect(
     () => () => {
@@ -84,15 +84,16 @@ export default function SectionMyPositions() {
     farmLpBasedData,
     stakedFarmMap,
     allFarmBalances,
-    clmmBalanceInfo,
-    clmmLockInfo,
-    isClmmLoading,
+    // clmmBalanceInfo,
+    // clmmLockInfo,
+    // isClmmLoading,
     isFarmLoading,
     rewardState,
     isSending
   } = useAllPositionInfo({})
 
-  const currentRewardState = rewardState[currentTab as PositionTabValues]
+  // const currentRewardState = rewardState[currentTab as PositionTabValues]
+  const currentRewardState = rewardState['standard']
 
   const handleRefreshAll = useEvent(() => {
     handleRefresh()
@@ -145,14 +146,14 @@ export default function SectionMyPositions() {
             />
           </Flex>
         </GridItem>
-        <GridItem area="tabs" justifySelf={['right', 'left']}>
+        {/* <GridItem area="tabs" justifySelf={['right', 'left']}>
           <Desktop>
             <Tabs size="md" variant="rounded" items={tabs} onChange={onTabChange} value={currentTab} />
           </Desktop>
           <Mobile>
             <Select variant="roundedFilledFlowDark" items={tabs} onChange={onTabChange} value={currentTab} />
           </Mobile>
-        </GridItem>
+        </GridItem> */}
         <GridItem area={'action'} justifySelf={['stretch', 'stretch', 'right']}>
           {connected ? (
             <Box py="6px" px={4} bg={colors.transparentContainerBg} borderRadius="12px">
@@ -218,7 +219,8 @@ export default function SectionMyPositions() {
                   minHeight={[7, 10]}
                   isLoading={isSending}
                   isDisabled={!currentRewardState.isReady}
-                  onClick={() => handleHarvest({ tab: currentTab as PositionTabValues, zeroClmmPos: noRewardClmmPos.current })}
+                  // onClick={() => handleHarvest({ tab: currentTab as PositionTabValues, zeroClmmPos: noRewardClmmPos.current })}
+                  onClick={() => handleHarvest({ tab: 'standard', zeroClmmPos: noRewardClmmPos.current })}
                 >
                   {t('portfolio.harvest_all_button')}
                 </Button>
@@ -228,25 +230,32 @@ export default function SectionMyPositions() {
         </GridItem>
       </Grid>
       {connected ? (
-        isFocusClmmTab ? (
-          <ClmmMyPositionTabContent
-            isLoading={isClmmLoading}
-            clmmBalanceInfo={clmmBalanceInfo}
-            lockInfo={clmmLockInfo}
-            setNoRewardClmmPos={setNoRewardClmmPos}
-            refreshTag={refreshTag}
-          />
-        ) : isFocusStandardTab ? (
-          <MyPositionTabStandard
-            isLoading={isFarmLoading}
-            allFarmBalances={allFarmBalances}
-            lpBasedData={farmLpBasedData}
-            stakedFarmMap={stakedFarmMap}
-            refreshTag={refreshTag}
-          />
-        ) : isFocusStake ? (
-          <MyPositionTabStaked allFarmBalances={allFarmBalances} farmLpBasedData={farmLpBasedData} refreshTag={refreshTag} />
-        ) : null
+        // isFocusClmmTab ? (
+        //   <ClmmMyPositionTabContent
+        //     isLoading={isClmmLoading}
+        //     clmmBalanceInfo={clmmBalanceInfo}
+        //     lockInfo={clmmLockInfo}
+        //     setNoRewardClmmPos={setNoRewardClmmPos}
+        //     refreshTag={refreshTag}
+        //   />
+        // ) : isFocusStandardTab ? (
+        //   <MyPositionTabStandard
+        //     isLoading={isFarmLoading}
+        //     allFarmBalances={allFarmBalances}
+        //     lpBasedData={farmLpBasedData}
+        //     stakedFarmMap={stakedFarmMap}
+        //     refreshTag={refreshTag}
+        //   />
+        // ) : isFocusStake ? (
+        //   <MyPositionTabStaked allFarmBalances={allFarmBalances} farmLpBasedData={farmLpBasedData} refreshTag={refreshTag} />
+        // ) : null
+        <MyPositionTabStandard
+          isLoading={isFarmLoading}
+          allFarmBalances={allFarmBalances}
+          lpBasedData={farmLpBasedData}
+          stakedFarmMap={stakedFarmMap}
+          refreshTag={refreshTag}
+        />
       ) : (
         <SimpleGrid {...panelCard} placeItems={'center'} bg={colors.backgroundLight} borderRadius="12px" py={12}>
           <Text my={8} color={colors.textTertiary} fontSize={['sm', 'md']}>
