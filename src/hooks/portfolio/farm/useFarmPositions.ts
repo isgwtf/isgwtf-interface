@@ -35,7 +35,7 @@ export const EMPTY_FARM_POS: FarmPositionInfo = {
   data: []
 }
 
-// const fetcher = ([url]: [url: string]) => axios.get<FarmPositionData>(url, { skipError: true })
+const fetcher = ([url]: [url: string]) => axios.get<FarmPositionData>(url, { skipError: true })
 
 export default function useFarmPositions(props: { shouldFetch?: boolean; refreshInterval?: number }) {
   const { shouldFetch = true, refreshInterval = 1000 * 60 } = props || {}
@@ -49,16 +49,11 @@ export default function useFarmPositions(props: { shouldFetch?: boolean; refresh
 
   const url = !publicKey || !shouldFetch ? null : host + OWNER_STAKE_FARMS.replace('{owner}', publicKey.toString())
 
-  // const { data, isLoading, error, ...rest } = useSWR(url ? [url, refreshTag] : url, fetcher, {
-  //   dedupingInterval: refreshInterval,
-  //   focusThrottleInterval: refreshInterval,
-  //   refreshInterval
-  // })
-  const data: any = undefined
-  const isLoading = false
-  const error: any = undefined
-  const rest: any = undefined
-
+  const { data, isLoading, error, ...rest } = useSWR(url ? [url, refreshTag] : url, fetcher, {
+    dedupingInterval: refreshInterval,
+    focusThrottleInterval: refreshInterval,
+    refreshInterval
+  })
   const positionData = data?.data || {}
   /**
    * {
@@ -121,12 +116,12 @@ export default function useFarmPositions(props: { shouldFetch?: boolean; refresh
 
   const isEmptyResult = !isLoading && !(data && !error)
 
-  // useEffect(() => {
-  //   if (!connection || !publicKey) return
-  //   addAccChangeCbk(rest.mutate)
+  useEffect(() => {
+    if (!connection || !publicKey) return
+    addAccChangeCbk(rest.mutate)
 
-  //   return () => removeAccChangeCbk(rest.mutate)
-  // }, [rest.mutate, connection?.rpcEndpoint, publicKey])
+    return () => removeAccChangeCbk(rest.mutate)
+  }, [rest.mutate, connection?.rpcEndpoint, publicKey])
 
   return {
     data: positionData,
