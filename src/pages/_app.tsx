@@ -15,7 +15,7 @@ import '@/components/LandingPage/liquidity.css'
 import 'react-day-picker/dist/style.css'
 import { GoogleAnalytics } from '@next/third-parties/google'
 
-import { isValidUrl } from '@/utils/url'
+// import { isValidUrl } from '@/utils/url'
 import { useDisclosure } from '@chakra-ui/react'
 import { useAppStore } from '@/store'
 import shallow from 'zustand/shallow'

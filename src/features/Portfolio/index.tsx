@@ -24,7 +24,7 @@ export default function Portfolio() {
         <PageHeroTitle title={t('portfolio.hero_title')} />
       </Desktop>
       {/* <AcceleraytorAlertChip /> */}
-      <SectionOverview />
+      {/* <SectionOverview /> */}
       <SectionMyPositions />
       <SectionMyCreatedFarms />
       <SectionAcceleraytor />
