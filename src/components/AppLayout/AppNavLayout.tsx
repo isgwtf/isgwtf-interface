@@ -46,7 +46,7 @@ function AppNavLayout({
         {/* logo */}
         <Desktop>
           <Box flex={'none'}>
-            <Link href="/swap">
+            <Link href="/">
               {/* <RaydiumLogo /> */}
               <img src="/logo.png" alt="" width="60px" />
             </Link>
@@ -56,7 +56,9 @@ function AppNavLayout({
           <HStack>
             {/* <RaydiumLogoOutline /> */}
             <Box mr="8px">
-              <img src="/logo.png" alt="" width="60px" />
+              <Link href="/">
+                <img src="/logo.png" alt="" width="60px" />
+              </Link>
             </Box>
             <Text fontSize="xl" fontWeight="medium" color={colors.textSecondary}>
               {pathname === '/swap'

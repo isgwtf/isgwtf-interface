@@ -5,6 +5,7 @@ import { colors } from '@/theme/cssVariables'
 import serum from './images/serum.png'
 import solana from './images/solana.png'
 import sushi from './images/sushi.png'
+import Link from 'next/link'
 
 export default function Partner() {
   return (
@@ -12,17 +13,23 @@ export default function Partner() {
       <Center px={[8, 0]}>
         <Flex direction="column" align="center">
           <Heading fontWeight={500} fontSize="3rem" lineHeight={'3.83rem'} color={colors.primary}>
-            Our Partners
+            Join Community
           </Heading>
           <Wrap spacing={'2.625rem'} mt="44px" maxW="1230px">
             <WrapItem>
-              <img src={solana.src} />
+              <Link href="https://x.com/" target="_blank">
+                <img src="/images/x.png" width="60px" />
+              </Link>
             </WrapItem>
             <WrapItem>
-              <img src={serum.src} />
+              <Link href="https://t.me/" target="_blank">
+                <img src="/images/telegram.png" width="60px" />
+              </Link>
             </WrapItem>
             <WrapItem>
-              <img src={sushi.src} />
+              <Link href="https://dexscreener.com/solana/" target="_blank">
+                <img src="/images/dexscreener.png" width="60px" />
+              </Link>
             </WrapItem>
           </Wrap>
         </Flex>

@@ -385,7 +385,7 @@ export default function Pools() {
         </Box>
 
         <Mobile>
-          <Box {...titleContainerProps} mb={0.5} flexShrink={0} marginX={revertAppLayoutPaddingX}>
+          <Box {...titleContainerProps} mb={0.5} flexShrink={0} marginX={revertAppLayoutPaddingX} mt="32px">
             {/* <TVLInfoPanelMobile tvl={tvl} volume={volume} /> */}
           </Box>
         </Mobile>

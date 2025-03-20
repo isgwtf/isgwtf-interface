@@ -80,7 +80,7 @@ export default function Footer() {
       }}
       pt="216.88px"
     >
-      <Center px={[8, 0]}>
+      {/* <Center px={[8, 0]}>
         <Box style={{ position: 'relative', zIndex: 2 }}>
           <Flex justify={['center', 'space-between']} flexWrap="wrap" style={{ position: 'relative', zIndex: 2 }} gap="93px">
             {footerList.map((foot, idx) => {
@@ -95,8 +95,16 @@ export default function Footer() {
             })}
           </Flex>
         </Box>
-      </Center>
-      <Logo style={{ position: 'relative', zIndex: 2, margin: '80px auto 80px auto' }} />
+      </Center> */}
+      {/* <Logo style={{ position: 'relative', zIndex: 2, margin: '80px auto 80px auto' }} /> */}
+      <Flex style={{ position: 'relative', zIndex: 2, margin: '80px auto 80px auto', gap: '20px' }} alignItems="center">
+        <img src="/logo.png" alt="" width="60px" />
+        <Flex>
+          <Text>2025</Text>
+          <Text fontFamily="sans-serif">&nbsp;@&nbsp;</Text>
+          <Text>Infinite Solana Glitch</Text>
+        </Flex>
+      </Flex>
       <img src={FooterBg.src} style={{ minWidth: '1440px', width: '100%', position: 'absolute', top: 0, height: '100%', zIndex: 1 }} />
     </Box>
   )

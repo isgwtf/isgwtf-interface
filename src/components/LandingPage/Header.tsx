@@ -1,7 +1,9 @@
-import { Flex } from '@chakra-ui/react'
+import { Box, Flex } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
 
 import useScroll from '@/hooks/useScroll'
+
+import Link from 'next/link'
 
 import Button from '../Button'
 
@@ -27,11 +29,14 @@ export default function Header() {
   }, [pageYOffset, isScrollup])
 
   return (
-    <>
+    <Box overflowY="scroll">
       <Flex justify={['center', 'flex-start']} pl={[0, 77]} py={6}>
-        <Logo />
+        {/* <Logo /> */}
+        <Link href="/">
+          <img src="/logo.png" alt="" width="60px" />
+        </Link>
       </Flex>
-      <Flex
+      {/* <Flex
         position="fixed"
         justify={['center', 'space-between']}
         align="center"
@@ -46,7 +51,7 @@ export default function Header() {
         <Button ml={[4, 0]} w={['fit-content', '180px']} size={['sm', 'md']}>
           Launch App
         </Button>
-      </Flex>
-    </>
+      </Flex> */}
+    </Box>
   )
 }

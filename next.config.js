@@ -35,11 +35,11 @@ module.exports = {
   },
   async redirects() {
     return [
-      {
-        source: '/',
-        destination: '/swap/',
-        permanent: false
-      }
+      // {
+      //   source: '/',
+      //   destination: '/swap/',
+      //   permanent: false
+      // }
     ]
   }
 }

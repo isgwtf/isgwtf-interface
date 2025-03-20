@@ -207,7 +207,7 @@ export default function AddLiquidity({
   }
 
   return (
-    <Flex direction="column" w="full" px="24px" py="40px" bg={colors.backgroundLight}>
+    <Flex direction="column" w="full" px="24px" py="27px" bg={colors.backgroundLight}>
       {/* modal */}
       {/* <AutoSwapModal
         isOpen={isOpenAutoSwapModal}

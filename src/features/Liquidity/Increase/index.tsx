@@ -174,6 +174,9 @@ export default function Increase() {
 
   return (
     <>
+      <Text fontSize={['28px', '32px', '36px']} color="green.100">
+        Add LP and Get SOL Rewards
+      </Text>
       <Grid templateColumns={['unset', '.5fr .8fr .6fr']} gap={'clamp(16px, 1.5vw, 64px)'} mt={8}>
         {/* left */}
         <GridItem>
