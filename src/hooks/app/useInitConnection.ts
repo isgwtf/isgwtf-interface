@@ -10,7 +10,7 @@ import { getDevOnlyStorage } from '@/utils/localStorage'
 import { SSRData } from '../../type'
 import { toastSubject } from '../toast/useGlobalToast'
 import { cancelAllRetry } from '@/utils/common'
-import { sendWalletEvent } from '@/api/event'
+// import { sendWalletEvent } from '@/api/event'
 import { validateTxData, extendTxData } from '@/api/txService'
 import { parseUserAgent } from 'react-device-detect'
 

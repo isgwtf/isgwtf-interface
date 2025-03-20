@@ -28,7 +28,7 @@ import { registerMoonGateWallet } from '@moongate/moongate-adapter'
 import { WalletConnectWalletAdapter } from '@walletconnect/solana-adapter'
 
 import { type Adapter, type WalletError } from '@solana/wallet-adapter-base'
-import { sendWalletEvent } from '@/api/event'
+// import { sendWalletEvent } from '@/api/event'
 import { useEvent } from '@/hooks/useEvent'
 import { LedgerWalletAdapter } from './Ledger/LedgerWalletAdapter'
 
