@@ -24,7 +24,7 @@ import {
 } from '@solana/wallet-adapter-wallets'
 import { useAppStore, defaultNetWork, defaultEndpoint } from '../store/useAppStore'
 import { registerMoonGateWallet } from '@moongate/moongate-adapter'
-import { TipLinkWalletAdapter } from '@tiplink/wallet-adapter'
+// import { TipLinkWalletAdapter } from '@tiplink/wallet-adapter'
 import { WalletConnectWalletAdapter } from '@walletconnect/solana-adapter'
 
 import { type Adapter, type WalletError } from '@solana/wallet-adapter-base'
@@ -73,12 +73,12 @@ const App: FC<PropsWithChildren<any>> = ({ children }) => {
         new WalletConnectWalletAdapter({
           network: network as WalletAdapterNetwork.Mainnet,
           options: {
-            projectId: process.env.NEXT_PUBLIC_WALLET_CONNECT_PJ_ID,
+            projectId: 'b2a68c7c6c71a25db96b24b676fce03f', //process.env.NEXT_PUBLIC_WALLET_CONNECT_PJ_ID,
             metadata: {
               name: 'ISG',
               description: 'ISG',
-              url: 'https://isg.io/',
-              icons: ['https://isg.io/logo/logo-only-icon.svg']
+              url: 'https://isg.fi/',
+              icons: ['https://isg.fi/isg.png']
             }
           }
         })
@@ -107,12 +107,12 @@ const App: FC<PropsWithChildren<any>> = ({ children }) => {
       new SafePalWalletAdapter({ endpoint }),
       new BitpieWalletAdapter({ endpoint }),
       new BitgetWalletAdapter({ endpoint }),
-      new ExodusWalletAdapter({ endpoint }),
-      new TipLinkWalletAdapter({
-        clientId: process.env.NEXT_PUBLIC_WALLET_TIP_WALLET_KEY ?? '',
-        title: 'ISG',
-        theme: 'system'
-      }) as unknown as Adapter
+      new ExodusWalletAdapter({ endpoint })
+      // new TipLinkWalletAdapter({
+      //   clientId: process.env.NEXT_PUBLIC_WALLET_TIP_WALLET_KEY ?? '',
+      //   title: 'ISG',
+      //   theme: 'system'
+      // }) as unknown as Adapter
     ],
     [network, endpoint]
   )
