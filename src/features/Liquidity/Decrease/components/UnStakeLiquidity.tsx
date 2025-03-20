@@ -12,7 +12,7 @@ import { FormattedPoolInfoStandardItem } from '@/hooks/pool/type'
 import { FormattedFarmInfo } from '@/hooks/farm/type'
 import useFetchFarmByLpMint from '@/hooks/farm/useFetchFarmByLpMint'
 import useFetchFarmBalance from '@/hooks/farm/useFetchFarmBalance'
-import useFarmPositions from '@/hooks/portfolio/farm/useFarmPositions'
+// import useFarmPositions from '@/hooks/portfolio/farm/useFarmPositions'
 import { useAppStore, useFarmStore, useTokenAccountStore } from '@/store'
 import useTokenPrice from '@/hooks/token/useTokenPrice'
 import { formatCurrency } from '@/utils/numberish/formatter'
@@ -52,8 +52,8 @@ export default function UnStakeLiquidity({
     poolLp: poolInfo?.lpMint.address
   })
 
-  const { farmBasedData, mutate: mutateFarmPos } = useFarmPositions({})
-  const farmPositionData = farmBasedData.get(selectedFarm?.id || '')
+  // const { farmBasedData, mutate: mutateFarmPos } = useFarmPositions({})
+  // const farmPositionData = farmBasedData.get(selectedFarm?.id || '')
 
   const {
     vault,
@@ -67,13 +67,14 @@ export default function UnStakeLiquidity({
     mintList: pendingRewards.map((_, idx) => selectedFarm?.rewardInfos[idx]?.mint.address)
   })
 
-  const v1Balance = farmPositionData?.data
-    .filter((d) => d.version === 'V1' && d.userVault !== vault && d.lpAmount !== '0')
-    .reduce((acc, cur) => acc.add(cur.lpAmount), new Decimal(0))
-    ?.toString()
-  const v1Deposited = new Decimal(v1Balance || 0).div(10 ** (selectedFarm?.lpMint.decimals || 0)).toString()
+  // const v1Balance = farmPositionData?.data
+  //   .filter((d) => d.version === 'V1' && d.userVault !== vault && d.lpAmount !== '0')
+  //   .reduce((acc, cur) => acc.add(cur.lpAmount), new Decimal(0))
+  //   ?.toString()
+  // const v1Deposited = new Decimal(v1Balance || 0).div(10 ** (selectedFarm?.lpMint.decimals || 0)).toString()
 
-  const totalDeposited = new Decimal(deposited).add(v1Deposited)
+  // const totalDeposited = new Decimal(deposited).add(v1Deposited)
+  const totalDeposited = new Decimal(deposited)
   const withdrawAmount = totalDeposited.mul(withdrawPercent).div(100)
 
   useEffect(() => {
@@ -89,9 +90,10 @@ export default function UnStakeLiquidity({
     withdrawFarmAct({
       farmInfo: selectedFarm!,
       amount: withdrawAmount.toString(),
-      userAuxiliaryLedgers: farmPositionData?.hasV1Data
-        ? farmPositionData.data.filter((d) => d.version === 'V1' && !new Decimal(d.lpAmount).isZero()).map((d) => d.userVault)
-        : undefined,
+      // userAuxiliaryLedgers: farmPositionData?.hasV1Data
+      //   ? farmPositionData.data.filter((d) => d.version === 'V1' && !new Decimal(d.lpAmount).isZero()).map((d) => d.userVault)
+      //   : undefined,
+      userAuxiliaryLedgers: undefined,
       onSent: () => {
         setWithdrawPercent(0)
         offSending()
@@ -103,7 +105,7 @@ export default function UnStakeLiquidity({
   const handleRefresh = useEvent(() => {
     mutateFarm()
     mutateFarmBalance()
-    mutateFarmPos()
+    // mutateFarmPos()
     fetchTokenAccountAct({})
   })
 

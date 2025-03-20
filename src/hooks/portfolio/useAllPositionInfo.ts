@@ -124,23 +124,21 @@ export default function useAllPositionInfo({ shouldFetch = true }: { shouldFetch
   }, [tickSlot, clmmPositionSlot, refreshClmmTicks])
 
   // fetch farm position info
-  const {
-    farmBasedData,
-    lpBasedData,
-    mutate: mutateFarmPos
-  } = useFarmPositions({
-    shouldFetch
-  })
+  // const {
+  //   farmBasedData,
+  //   lpBasedData,
+  //   mutate: mutateFarmPos
+  // } = useFarmPositions({
+  //   shouldFetch
+  // })
   const {
     data: stakedFarmList,
     formattedDataMap: stakedFarmMap,
     isLoading: isFarmLoading,
     mutate: mutateFarmsInfo
   } = useFetchMultipleFarmInfo<FormatFarmInfoOutV6>({
-    shouldFetch: farmBasedData.size > 0,
-    idList: Array.from(farmBasedData.entries())
-      .filter((data) => data[1].hasAmount)
-      .map((r) => r[0])
+    shouldFetch: false,
+    idList: []
   })
 
   const {
@@ -150,19 +148,7 @@ export default function useAllPositionInfo({ shouldFetch = true }: { shouldFetch
     mutate: mutateFarmBalance
   } = useFetchMultipleFarmBalance({
     refreshInterval: 60 * 1000,
-    farmInfoList: stakedFarmList.length
-      ? Array.from(farmBasedData.values())
-          .filter((f) => f.hasAmount && f.data.length > 0 && !!stakedFarmList.find((s) => f.data.find((d) => d.farmId === s.id)))
-          .map((f) => {
-            const data = stakedFarmList.find((s) => f.data.find((d) => d.farmId === s.id))!
-            return {
-              id: data.id,
-              programId: data.programId,
-              lpMint: data.lpMint,
-              rewardInfos: data.rewardInfos
-            }
-          })
-      : []
+    farmInfoList: []
   })
   const { data: tokenPrices } = useTokenPrice({
     mintList: allFarmBalances.map((b) => stakedFarmMap.get(b?.id || '')?.rewardInfos.map((r) => r.mint.address)).flat()
@@ -280,7 +266,7 @@ export default function useAllPositionInfo({ shouldFetch = true }: { shouldFetch
   const handleRefresh = useEvent(() => {
     fetchTokenAccountAct({})
     mutatePoolInfo()
-    mutateFarmPos()
+    // mutateFarmPos()
     mutateFarmsInfo()
     mutateFarmBalance()
     useTokenAccountStore.setState({ refreshClmmPositionTag: Date.now(), refreshCpmmPositionTag: Date.now() })
@@ -290,7 +276,7 @@ export default function useAllPositionInfo({ shouldFetch = true }: { shouldFetch
     setIsSending(true)
 
     const handleRefreshFarm = () => {
-      mutateFarmPos()
+      // mutateFarmPos()
       mutateFarmsInfo()
       mutateFarmBalance()
     }
@@ -407,7 +393,7 @@ export default function useAllPositionInfo({ shouldFetch = true }: { shouldFetch
     stakedFarmMap,
     allFarmBalances,
     rpcFarmDataList,
-    farmLpBasedData: lpBasedData,
+    farmLpBasedData: undefined,
 
     isClmmLoading: isClmmBalanceLoading || isPoolLoading,
     clmmRecord,

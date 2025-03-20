@@ -7,7 +7,7 @@ import Decimal from 'decimal.js'
 import Tabs, { TabItem } from '@/components/Tabs'
 import { Desktop, Mobile } from '@/components/MobileDesktop'
 import useFetchPoolById from '@/hooks/pool/useFetchPoolById'
-import useFarmPositions from '@/hooks/portfolio/farm/useFarmPositions'
+// import useFarmPositions from '@/hooks/portfolio/farm/useFarmPositions'
 import { useEvent } from '@/hooks/useEvent'
 import ChevronLeftIcon from '@/icons/misc/ChevronLeftIcon'
 import LockIcon from '@/icons/misc/LockIcon'
@@ -57,7 +57,7 @@ export default function Increase() {
   ]
   const getTokenBalanceUiAmount = useTokenAccountStore((s) => s.getTokenBalanceUiAmount)
   const fetchTokenAccountAct = useTokenAccountStore((s) => s.fetchTokenAccountAct)
-  const { lpBasedData } = useFarmPositions({})
+  // const { lpBasedData } = useFarmPositions({})
 
   const [tokenPair, setTokenPair] = useState<{ base?: ApiV3Token; quote?: ApiV3Token }>({})
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -93,9 +93,9 @@ export default function Increase() {
     decimals: pool?.lpMint.decimals
   })
 
-  const stakedData = new Decimal(pool ? lpBasedData.get(pool.lpMint.address)?.totalLpAmount || '0' : '0')
-    .div(10 ** (pool?.lpMint.decimals ?? 0))
-    .toString()
+  // const stakedData = new Decimal(pool ? lpBasedData.get(pool.lpMint.address)?.totalLpAmount || '0' : '0')
+  //   .div(10 ** (pool?.lpMint.decimals ?? 0))
+  //   .toString()
   const hasFarmInfo = pool ? pool.farmOngoingCount > 0 || pool.farmUpcomingCount > 0 || !!farms.find((f) => f.isOngoing) : false
 
   increaseTabOptions[1].disabled = !hasFarmInfo
@@ -241,7 +241,8 @@ export default function Increase() {
               />
               <PositionBalance
                 myPosition={Number(lpBalance.amount.mul(pool?.lpPrice ?? 0).toFixed(pool?.lpMint.decimals ?? 6))}
-                staked={stakedData}
+                // staked={stakedData}
+                staked={0}
                 unstaked={lpBalance.isZero ? '--' : lpBalance.text}
               />
             </VStack>
@@ -300,7 +301,8 @@ export default function Increase() {
               }
               aprData={aprData}
               myPosition={Number(lpBalance.amount.mul(pool?.lpPrice ?? 0).toFixed(pool?.lpMint.decimals ?? 6))}
-              staked={stakedData}
+              // staked={stakedData}
+              staked={0}
               unstaked={lpBalance.isZero ? '--' : lpBalance.text}
             />
           </Mobile>

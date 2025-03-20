@@ -197,6 +197,7 @@ export const useAppStore = createStore<AppState>(
           raydium.token.mintGroup.official.add(t.address)
         }
       })
+      // console.log(urlConfigs)
       const tokenMap = new Map(Array.from(raydium.token.tokenMap))
       const tokenList = (JSON.parse(JSON.stringify(raydium.token.tokenList)) as TokenInfo[])
         .filter((t) => {

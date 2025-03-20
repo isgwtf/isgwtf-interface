@@ -81,12 +81,12 @@ export default function SectionMyPositions() {
   const {
     handleHarvest,
     handleRefresh,
-    farmLpBasedData,
+    // farmLpBasedData,
     stakedFarmMap,
     allFarmBalances,
-    // clmmBalanceInfo,
-    // clmmLockInfo,
-    // isClmmLoading,
+    clmmBalanceInfo,
+    clmmLockInfo,
+    isClmmLoading,
     isFarmLoading,
     rewardState,
     isSending
@@ -252,7 +252,7 @@ export default function SectionMyPositions() {
         <MyPositionTabStandard
           isLoading={isFarmLoading}
           allFarmBalances={allFarmBalances}
-          lpBasedData={farmLpBasedData}
+          // lpBasedData={farmLpBasedData}
           stakedFarmMap={stakedFarmMap}
           refreshTag={refreshTag}
         />

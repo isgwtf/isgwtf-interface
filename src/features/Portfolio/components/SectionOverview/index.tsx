@@ -8,7 +8,7 @@ import PortfolioInfo from './components/PortfolioInfo'
 import useTokenBalance from '@/hooks/portfolio/useTokenBalance'
 import useFetchStakePools from '@/hooks/pool/useFetchStakePools'
 import useFetchFarmBalance from '@/hooks/farm/useFetchFarmBalance'
-import useFarmPositions from '@/hooks/portfolio/farm/useFarmPositions'
+// import useFarmPositions from '@/hooks/portfolio/farm/useFarmPositions'
 import useTokenPrice from '@/hooks/token/useTokenPrice'
 import Decimal from 'decimal.js'
 import { useTranslation } from 'react-i18next'
@@ -43,18 +43,19 @@ export default function SectionOverview() {
 
   const { activeStakePools } = useFetchStakePools({})
   const stakingFarm = activeStakePools.find((p) => p.lpMint.address === RAYMintStr)
-  const { lpBasedData } = useFarmPositions({})
-  const v1Vault = lpBasedData.get(RAYMintStr)?.data.find((d) => d.version === 'V1' && !new Decimal(d.lpAmount).isZero())
-  const v1FarmBalance = useFetchFarmBalance({
-    shouldFetch: !!(v1Vault && new Decimal(v1Vault.lpAmount).gt(0)),
-    farmInfo: stakingFarm,
-    ledgerKey: v1Vault ? new PublicKey(v1Vault.userVault) : undefined
-  })
+  // const { lpBasedData } = useFarmPositions({})
+  // const v1Vault = lpBasedData.get(RAYMintStr)?.data.find((d) => d.version === 'V1' && !new Decimal(d.lpAmount).isZero())
+  // const v1FarmBalance = useFetchFarmBalance({
+  //   shouldFetch: !!(v1Vault && new Decimal(v1Vault.lpAmount).gt(0)),
+  //   farmInfo: stakingFarm,
+  //   ledgerKey: v1Vault ? new PublicKey(v1Vault.userVault) : undefined
+  // })
 
   const ataFarmBalance = useFetchFarmBalance({
     farmInfo: stakingFarm
   })
-  const stakingRay = ataFarmBalance.hasDeposited || v1FarmBalance.deposited === '0' ? ataFarmBalance : v1FarmBalance
+  // const stakingRay = ataFarmBalance.hasDeposited || v1FarmBalance.deposited === '0' ? ataFarmBalance : v1FarmBalance
+  const stakingRay = ataFarmBalance
 
   const stakedRayBalance = {
     key: 'Staked Ray',

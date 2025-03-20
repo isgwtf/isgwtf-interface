@@ -3,7 +3,7 @@ import { Flex, Text, Link, Button, Skeleton } from '@chakra-ui/react'
 import { useTranslation } from 'react-i18next'
 import StandardPoolRowItem from './components/Standard/StandardPoolRowItem'
 import { FormattedFarmInfoV6 } from '@/hooks/farm/type'
-import { FarmPositionInfo, EMPTY_FARM_POS } from '@/hooks/portfolio/farm/useFarmPositions'
+// import { FarmPositionInfo, EMPTY_FARM_POS } from '@/hooks/portfolio/farm/useFarmPositions'
 import useFetchAccLpMint from '@/hooks/token/useFetchAccLpMint'
 import useFetchPoolByLpMint from '@/hooks/pool/useFetchPoolByLpMint'
 import { colors } from '@/theme/cssVariables'
@@ -25,7 +25,7 @@ const emptyPosition = {
 }
 
 export default function MyPositionTabStandard({
-  lpBasedData,
+  // lpBasedData,
   allFarmBalances,
   refreshTag,
   stakedFarmMap,
@@ -34,21 +34,23 @@ export default function MyPositionTabStandard({
   isLoading: boolean
   allFarmBalances: FarmBalanceInfo[]
   refreshTag: number
-  lpBasedData: Map<string, FarmPositionInfo>
+  // lpBasedData: Map<string, FarmPositionInfo>
   stakedFarmMap: Map<string, FormattedFarmInfoV6>
 }) {
   const { t } = useTranslation()
   const { noneZeroLpMintList } = useFetchAccLpMint({})
   const { cpmmLockBalanceInfo } = useLockCpmmBalance({})
-  const farmPositionList = Array.from(lpBasedData.entries()).filter(
-    ([lpMint, position]) => position.hasAmount && lpMint !== RAYMint.toString()
-  )
-  const lpOnlyList = noneZeroLpMintList.filter(
-    (d) => !(lpBasedData.has(d!.address.toString()) && lpBasedData.get(d!.address.toString())?.hasAmount)
-  )
+  // const farmPositionList = Array.from(lpBasedData.entries()).filter(
+  //   ([lpMint, position]) => position.hasAmount && lpMint !== RAYMint.toString()
+  // )
+  const farmPositionList: any[] = []
+  // const lpOnlyList = noneZeroLpMintList.filter(
+  //   (d) => !(lpBasedData.has(d!.address.toString()) && lpBasedData.get(d!.address.toString())?.hasAmount)
+  // )
 
   const { formattedData: _formattedData, isLoading: isPoolLoading } = useFetchPoolByLpMint({
-    lpMintList: farmPositionList.map((f) => f[0]).concat(lpOnlyList.map((p) => p.address.toBase58())),
+    // lpMintList: farmPositionList.map((f) => f[0]).concat(lpOnlyList.map((p) => p.address.toBase58())),
+    lpMintList: [],
     refreshTag,
     keepPreviousData: true
   })
@@ -58,17 +60,19 @@ export default function MyPositionTabStandard({
   const allLockLp = useMemo(() => {
     const data = new Map(Array.from(cpmmLockBalanceInfo))
     farmPositionList.forEach((f) => data.delete(f[0]))
-    lpOnlyList.forEach((l) => data.delete(l.address.toBase58()))
+    // lpOnlyList.forEach((l) => data.delete(l.address.toBase58()))
     return Array.from(data)
-  }, [farmPositionList, lpOnlyList])
+    // }, [farmPositionList, lpOnlyList])
+  }, [farmPositionList])
 
   const allPoolData = [...(formattedData || []), ...allLockLp.map((d) => formatPoolData(d[1][0].poolInfo) as FormattedPoolInfoStandardItem)]
 
-  const hasData = farmPositionList.length > 0 || lpOnlyList.length > 0 || allLockLp.length > 0
+  // const hasData = farmPositionList.length > 0 || lpOnlyList.length > 0 || allLockLp.length > 0
+  const hasData = farmPositionList.length > 0 || allLockLp.length > 0
   const allData = [
-    ...farmPositionList,
-    ...lpOnlyList,
-    ...Array.from(allLockLp).map((d) => [d[0], EMPTY_FARM_POS] as [string, FarmPositionInfo])
+    ...farmPositionList
+    // ...lpOnlyList,
+    // ...Array.from(allLockLp).map((d) => [d[0], EMPTY_FARM_POS] as [string, FarmPositionInfo])
   ]
 
   if (allData.length < 50)
