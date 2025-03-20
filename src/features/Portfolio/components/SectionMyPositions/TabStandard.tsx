@@ -48,9 +48,11 @@ export default function MyPositionTabStandard({
   //   (d) => !(lpBasedData.has(d!.address.toString()) && lpBasedData.get(d!.address.toString())?.hasAmount)
   // )
 
+  const lpOnlyList = noneZeroLpMintList
+
   const { formattedData: _formattedData, isLoading: isPoolLoading } = useFetchPoolByLpMint({
     // lpMintList: farmPositionList.map((f) => f[0]).concat(lpOnlyList.map((p) => p.address.toBase58())),
-    lpMintList: [],
+    lpMintList: lpOnlyList.map((p) => p.address.toBase58()),
     refreshTag,
     keepPreviousData: true
   })
@@ -60,18 +62,17 @@ export default function MyPositionTabStandard({
   const allLockLp = useMemo(() => {
     const data = new Map(Array.from(cpmmLockBalanceInfo))
     farmPositionList.forEach((f) => data.delete(f[0]))
-    // lpOnlyList.forEach((l) => data.delete(l.address.toBase58()))
+    lpOnlyList.forEach((l) => data.delete(l.address.toBase58()))
     return Array.from(data)
-    // }, [farmPositionList, lpOnlyList])
-  }, [farmPositionList])
+  }, [farmPositionList, lpOnlyList])
 
   const allPoolData = [...(formattedData || []), ...allLockLp.map((d) => formatPoolData(d[1][0].poolInfo) as FormattedPoolInfoStandardItem)]
 
-  // const hasData = farmPositionList.length > 0 || lpOnlyList.length > 0 || allLockLp.length > 0
-  const hasData = farmPositionList.length > 0 || allLockLp.length > 0
+  const hasData = farmPositionList.length > 0 || lpOnlyList.length > 0 || allLockLp.length > 0
+
   const allData = [
-    ...farmPositionList
-    // ...lpOnlyList,
+    ...farmPositionList,
+    ...lpOnlyList
     // ...Array.from(allLockLp).map((d) => [d[0], EMPTY_FARM_POS] as [string, FarmPositionInfo])
   ]
 
