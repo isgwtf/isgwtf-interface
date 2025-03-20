@@ -54,16 +54,16 @@ const MyApp = ({ Component, pageProps, ...props }: AppProps) => {
       <GoogleAnalytics gaId="G-DR3V6FTKE3" />
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-        <meta name="twitter:image" content="https://isg.wtf/logo.png" />
+        <meta name="twitter:image" content="https://isg.fi/logo.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@ISGProtocol" />
         <meta name="twitter:creator" content="@ISGProtocol" />
         <meta name="twitter:title" content="ISG" />
         <meta name="twitter:description" content="" />
         <meta property="og:description" content="" />
-        <meta property="og:url" content="https://isg.wtf/" />
+        <meta property="og:url" content="https://isg.fi/" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://isg.wtf/logo.png" />
+        <meta property="og:image" content="https://isg.fi/logo.png" />
         <meta property="og:image:alt" content="ISG" />
         <meta property="og:locale" content="en" />
         <meta property="og:site_name" content="ISG" />
