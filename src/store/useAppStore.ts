@@ -21,7 +21,7 @@ import { isValidUrl } from '@/utils/url'
 import { setStorageItem, getStorageItem } from '@/utils/localStorage'
 import { retry, isProdEnv } from '@/utils/common'
 import { compare } from 'compare-versions'
-import { ISG } from './configs/tokens'
+import { ISG } from './configs/constants'
 
 export const defaultNetWork = WalletAdapterNetwork.Mainnet // Can be set to 'devnet', 'testnet', or 'mainnet-beta'
 export const defaultEndpoint = clusterApiUrl(defaultNetWork) // You can also provide a custom RPC endpoint

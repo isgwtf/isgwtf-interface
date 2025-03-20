@@ -1,5 +1,7 @@
 import { TokenInfo } from '@raydium-io/raydium-sdk-v2'
 
+export const ISG_POOL = 'HhduYrawtfpXVb6Dy27Yu5nh4hDwK3AtomjA68ic9xvi'
+
 export const myTokens = [
   '11111111111111111111111111111111',
   'So11111111111111111111111111111111111111112',

@@ -194,7 +194,8 @@ export default function StandardPoolRowItem({ pool, isLoading, position, stakedF
     return info
   }, [allPendingRewards])
 
-  if (!pool) return isLoading ? <Skeleton w="full" height="140px" rounded="lg" /> : null
+  // if (!pool) return isLoading ? <Skeleton w="full" height="140px" rounded="lg" /> : null
+  if (!pool) return null
 
   const hasFarm = pool?.farmOngoingCount > 0 || pool?.farmUpcomingCount > 0
   let positionStatus = ''
@@ -238,19 +239,25 @@ export default function StandardPoolRowItem({ pool, isLoading, position, stakedF
                   h={6}
                   onClick={() => {
                     hasFarmLp
-                      ? routeToPage('decrease-liquidity', {
-                          queryProps: {
-                            mode: 'unstake',
-                            pool_id: pool.id,
-                            farm_id: farmInfo?.id
-                          }
-                        })
-                      : routeToPage('decrease-liquidity', {
-                          queryProps: {
-                            mode: 'remove',
-                            pool_id: pool.id
-                          }
-                        })
+                      ? routeToPage(
+                          'decrease-liquidity'
+                          // , {
+                          //   queryProps: {
+                          //     mode: 'unstake',
+                          //     pool_id: pool.id,
+                          //     farm_id: farmInfo?.id
+                          //   }
+                          // }
+                        )
+                      : routeToPage(
+                          'decrease-liquidity'
+                          // , {
+                          //   queryProps: {
+                          //     mode: 'remove',
+                          //     pool_id: pool.id
+                          //   }
+                          // }
+                        )
                   }}
                 >
                   <MinusIcon color={colors.secondary} />
@@ -260,12 +267,15 @@ export default function StandardPoolRowItem({ pool, isLoading, position, stakedF
                   w={9}
                   h={6}
                   onClick={() => {
-                    routeToPage('increase-liquidity', {
-                      queryProps: {
-                        mode: 'add',
-                        pool_id: pool.id
-                      }
-                    })
+                    routeToPage(
+                      'increase-liquidity'
+                      // {
+                      //   queryProps: {
+                      //     mode: 'add',
+                      //     pool_id: pool.id
+                      //   }
+                      // }
+                    )
                   }}
                 >
                   <PlusIcon />

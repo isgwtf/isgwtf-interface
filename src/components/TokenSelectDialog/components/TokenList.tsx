@@ -21,7 +21,7 @@ import useTokenInfo from '@/hooks/token/useTokenInfo'
 import { isValidPublicKey } from '@/utils/publicKey'
 import { formatToRawLocaleStr } from '@/utils/numberish/formatter'
 import useTokenPrice, { TokenPrice } from '@/hooks/token/useTokenPrice'
-import { ISG, myTokens } from '@/store/configs/tokens'
+import { ISG, myTokens } from '@/store/configs/constants'
 
 const perPage = 30
 

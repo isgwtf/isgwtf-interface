@@ -44,7 +44,7 @@ import useTokenInfo from '@/hooks/token/useTokenInfo'
 import { debounce } from '@/utils/functionMethods'
 import QuestionCircleIcon from '@/icons/misc/QuestionCircleIcon'
 import Tooltip from '@/components/Tooltip'
-import { ISG } from '@/store/configs/tokens'
+import { ISG } from '@/store/configs/constants'
 
 export function SwapPanel({
   onInputMintChange,

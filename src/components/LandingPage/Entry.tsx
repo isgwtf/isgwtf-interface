@@ -36,7 +36,7 @@ export default function Entry() {
             </Flex>
             <Flex w="100" justifyContent="center">
               <Flex flexWrap="wrap" justifyContent="center" gap={[23, 46]}>
-                <Link href="/liquidity/increase/?mode=add&pool_id=HhduYrawtfpXVb6Dy27Yu5nh4hDwK3AtomjA68ic9xvi">
+                <Link href="/liquidity/increase">
                   <Button minW={['100%', 230]} minH={14} variant="outline">
                     Get SOL
                   </Button>

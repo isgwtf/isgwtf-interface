@@ -5,8 +5,9 @@ import { Box, Heading, Text, VStack } from '@chakra-ui/react'
 import { useTranslation } from 'react-i18next'
 import IdoRowItem from './components/IdoRowItem'
 import { useAppStore } from '@/store'
+import { PoolListHeader } from './components/PoolListHeader'
 
-export default function SectionAcceleraytor() {
+export default function SectionHistory() {
   const { t } = useTranslation()
 
   const publicKey = useAppStore((s) => s.publicKey)
@@ -21,11 +22,13 @@ export default function SectionAcceleraytor() {
   return (
     <Box pt="20px">
       <Heading id="acceleraytor" fontSize={['lg', 'xl']} fontWeight="500" mb={[3, 4]} mt={6} color={colors.textPrimary}>
-        {t('portfolio.acceleraytor')}
+        {/* {t('portfolio.acceleraytor')} */}
+        SOL Rewards History
       </Heading>
-      <Text color={colors.textSecondary} fontSize={['sm', 'md']} mb={2}>
+      {/* <Text color={colors.textSecondary} fontSize={['sm', 'md']} mb={2}>
         {t('portfolio.acceleraytor_desc')}
-      </Text>
+      </Text> */}
+      <PoolListHeader order={8} timeBase="24h" sortKey="volume" handleClickSort={() => {}} />
       <VStack align={'stretch'} spacing={3}>
         {formattedData.map((data) => (
           <IdoRowItem key={data.poolId} idoKeys={keysDataMap[data.poolId]} {...data} />

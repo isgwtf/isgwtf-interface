@@ -15,6 +15,7 @@ import { LiquidityActionModeType, tabValueModeMapping } from '../utils'
 import BalanceInfo from './components/BalanceInfo'
 import RemoveLiquidity from './components/RemoveLiquidity'
 import UnStakeLiquidity from './components/UnStakeLiquidity'
+import { ISG_POOL } from '@/store/configs/constants'
 
 export type DecreaseTabOptionType = {
   value: 'Unstake Liquidity' | 'Remove Liquidity'
@@ -37,7 +38,9 @@ export default function Decrease() {
     { value: 'Unstake Liquidity', label: t('liquidity.unstake_liquidity') },
     { value: 'Remove Liquidity', label: t('liquidity.remove_liquidity') }
   ]
-  const { pool_id: poolId = '', mode: queryMode = 'unstake', farm_id } = useRouteQuery<DecreaseLiquidityPageQuery>()
+  // const { pool_id: poolId = '', mode: queryMode = 'unstake', farm_id } = useRouteQuery<DecreaseLiquidityPageQuery>()
+  const poolId: string = ISG_POOL
+  const queryMode = 'remove'
   const getTokenBalanceUiAmount = useTokenAccountStore((s) => s.getTokenBalanceUiAmount)
   const fetchTokenAccountAct = useTokenAccountStore((s) => s.fetchTokenAccountAct)
 

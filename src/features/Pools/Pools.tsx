@@ -60,7 +60,7 @@ import { getFavoritePoolCache, POOL_SORT_KEY } from './util'
 import i18n from '@/i18n'
 import { setUrlQuery, useRouteQuery } from '@/utils/routeTools'
 import { urlToMint, mintToUrl } from '@/utils/token'
-import { ISG } from '@/store/configs/tokens'
+import { ISG } from '@/store/configs/constants'
 
 export type PoolPageQuery = {
   token?: string

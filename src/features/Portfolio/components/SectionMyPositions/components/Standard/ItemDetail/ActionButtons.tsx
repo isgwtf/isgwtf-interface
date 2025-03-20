@@ -36,21 +36,27 @@ export default function ActionButtons({
   const { t } = useTranslation()
   const { isMobile } = useResponsive()
   const onUnstaking = () => {
-    routeToPage('decrease-liquidity', {
-      queryProps: {
-        mode: 'unstake',
-        pool_id: poolId,
-        farm_id: farmId
-      }
-    })
+    routeToPage(
+      'decrease-liquidity'
+      //   , {
+      //   queryProps: {
+      //     mode: 'unstake',
+      //     pool_id: poolId,
+      //     farm_id: farmId
+      //   }
+      // }
+    )
   }
   const onRemoveLiquidity = () => {
-    routeToPage('decrease-liquidity', {
-      queryProps: {
-        mode: 'remove',
-        pool_id: poolId
-      }
-    })
+    routeToPage(
+      'decrease-liquidity'
+      //   , {
+      //   queryProps: {
+      //     mode: 'remove',
+      //     pool_id: poolId
+      //   }
+      // }
+    )
   }
 
   const onStake = () => {
@@ -63,12 +69,15 @@ export default function ActionButtons({
   }
 
   const onAddLiquidity = () => {
-    routeToPage('increase-liquidity', {
-      queryProps: {
-        mode: 'add',
-        pool_id: poolId
-      }
-    })
+    routeToPage(
+      'increase-liquidity'
+      //   , {
+      //   queryProps: {
+      //     mode: 'add',
+      //     pool_id: poolId
+      //   }
+      // }
+    )
   }
 
   return (

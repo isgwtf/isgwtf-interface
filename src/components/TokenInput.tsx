@@ -31,7 +31,7 @@ import TokenUnknownAddDialog from './TokenSelectDialog/components/TokenUnknownAd
 import TokenFreezeDialog from './TokenSelectDialog/components/TokenFreezeDialog'
 import { TokenListHandles } from './TokenSelectDialog/components/TokenList'
 import useResponsive from '@/hooks/useResponsive'
-import { ISG } from '@/store/configs/tokens'
+import { ISG } from '@/store/configs/constants'
 
 export const DEFAULT_SOL_RESERVER = 0.01
 export interface InputActionRef {

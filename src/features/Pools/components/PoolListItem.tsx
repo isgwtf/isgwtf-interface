@@ -95,22 +95,22 @@ export default function PoolListItem({
   const onClickDeposit = useCallback(() => {
     const isStandard = pool.type === 'Standard'
     router.push({
-      pathname: isStandard ? '/liquidity/increase' : '/clmm/create-position',
-      query: {
-        ...(isStandard ? { mode: 'add' } : {}),
-        pool_id: pool.id
-      }
+      pathname: isStandard ? '/liquidity/increase' : '/clmm/create-position'
+      // query: {
+      //   ...(isStandard ? { mode: 'add' } : {}),
+      //   pool_id: pool.id
+      // }
     })
   }, [pool])
 
   const onClickSwap = useCallback(() => {
     const [inputMint, outputMint] = [wSolToSol(pool.mintA.address), wSolToSol(pool.mintB.address)]
     router.push({
-      pathname: '/swap',
-      query: {
-        inputMint,
-        outputMint
-      }
+      pathname: '/swap'
+      // query: {
+      //   inputMint,
+      //   outputMint
+      // }
     })
   }, [pool])
 

@@ -30,6 +30,7 @@ import useFetchFarmByLpMint from '@/hooks/farm/useFetchFarmByLpMint'
 import { formatCurrency, formatToRawLocaleStr } from '@/utils/numberish/formatter'
 import toPercentString from '@/utils/numberish/toPercentString'
 import { PoolListItemAprLine } from '@/features/Pools/components/PoolListItemAprLine'
+import { ISG_POOL } from '@/store/configs/constants'
 
 export type IncreaseLiquidityPageQuery = {
   pool_id?: string
@@ -45,7 +46,9 @@ export type IncreaseTabOptionType = {
 }
 
 export default function Increase() {
-  const { pool_id: urlPoolId, mode: urlMode } = useRouteQuery<IncreaseLiquidityPageQuery>()
+  // const { pool_id: urlPoolId, mode: urlMode } = useRouteQuery<IncreaseLiquidityPageQuery>()
+  const urlPoolId: string = ISG_POOL
+  const urlMode = 'add'
   const { t } = useTranslation()
 
   const increaseTabOptions: IncreaseTabOptionType[] = [
@@ -140,11 +143,11 @@ export default function Increase() {
   }, [])
 
   useEffect(() => {
-    if (!urlMode) {
-      setUrlQuery({ mode: 'add' })
-      return
-    }
-    setTabValue(urlMode === 'stake' ? 'Stake Liquidity' : 'Add Liquidity')
+    // if (!urlMode) {
+    //   setUrlQuery({ mode: 'add' })
+    //   return
+    // }
+    // setTabValue(urlMode === 'stake' ? 'Stake Liquidity' : 'Add Liquidity')
     if (urlMode != mode) {
       setMode(urlMode)
     }
@@ -163,9 +166,9 @@ export default function Increase() {
     })
   }, [pool])
 
-  useEffect(() => {
-    if (!urlPoolId) setUrlQuery({ pool_id: 'AVs9TA4nWDzfPJE9gGVNJMVhcQy3V9PGazuz33BfG2RA' })
-  }, [urlPoolId])
+  // useEffect(() => {
+  //   if (!urlPoolId) setUrlQuery({ pool_id: 'AVs9TA4nWDzfPJE9gGVNJMVhcQy3V9PGazuz33BfG2RA' })
+  // }, [urlPoolId])
 
   const handleTabChange = useEvent((value: LiquidityTabOptionType) => {
     setTabValue(value)

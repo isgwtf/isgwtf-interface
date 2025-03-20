@@ -12,7 +12,7 @@ import useLockCpmmBalance from '@/hooks/portfolio/cpmm/useLockCpmmBalance'
 import { useMemo } from 'react'
 import { formatPoolData } from '@/hooks/pool/formatter'
 import { FormattedPoolInfoStandardItem } from '@/hooks/pool/type'
-import { ISG } from '@/store/configs/tokens'
+import { ISG } from '@/store/configs/constants'
 
 const emptyPosition = {
   hasAmount: true,

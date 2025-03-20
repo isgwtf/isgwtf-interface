@@ -26,7 +26,7 @@ import { getMintPriority } from '@/utils/token'
 // import { MoonpayBuy } from '@/components/Moonpay'
 // import { toastSubject } from '@/hooks/toast/useGlobalToast'
 import useResponsive from '@/hooks/useResponsive'
-import { ISG } from '@/store/configs/tokens'
+import { ISG } from '@/store/configs/constants'
 
 export default function Swap() {
   // const { inputMint: cacheInput, outputMint: cacheOutput } = getSwapPairCache()
